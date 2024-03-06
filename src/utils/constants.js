@@ -2,6 +2,7 @@ const constants = {
   route: {
     root: "/",
     login: "/login",
+    home: "/home",
     vocabulary: "/vocabulary",
     collocation: "/collocation",
     grammar: "/grammar",

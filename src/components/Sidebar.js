@@ -1,16 +1,17 @@
 import React from "react";
 import constants from "../utils/constants";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const location = useLocation()
 
   const sidebarData = [
     {
       id: 1,
       label: "Home",
       icon: process.env.PUBLIC_URL + "/icons/home.svg",
-      url: constants.route.root,
+      url: constants.route.home,
     },
     {
       id: 2,
@@ -63,14 +64,13 @@ const Sidebar = () => {
           {sidebarData?.map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 h-[52px] mb-2.5 text-c5c5c5 font-medium py-3.5 px-6 cursor-pointer"
+              className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${(location.pathname).includes(item.url) ? "bg-1F2225 border-s-[3px] text-white" : "text-c5c5c5"}`}
               onClick={() => navigate(item?.url)}
             >
               <img
                 width={24}
                 src={item?.icon}
                 alt={item?.label}
-                className="text-black"
               />
               <span>{item?.label}</span>
             </div>
@@ -92,7 +92,7 @@ const Sidebar = () => {
         </div>
         <div className="py-6 border-t">
           <div
-            className="flex items-center gap-3 h-[52px] mb-2.5 text-c5c5c5 py-3.5 px-6 cursor-pointer"
+            className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${(location.pathname).includes("help") ? "text-white" : "text-c5c5c5"}`}
             onClick={() => navigate(constants.route.help)}
           >
             <img
@@ -103,8 +103,8 @@ const Sidebar = () => {
             <span>Help</span>
           </div>
           <div
-            className="flex items-center gap-3 h-[52px] mb-2.5 text-c5c5c5 py-3.5 px-6 cursor-pointer"
-            onClick={() => navigate(constants.route.help)}
+            className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${(location.pathname).includes("setting") ? "text-white" : "text-c5c5c5"}`}
+            onClick={() => navigate(constants.route.setting)}
           >
             <img
               width={24}
@@ -130,4 +130,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);
