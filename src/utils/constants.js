@@ -3,6 +3,7 @@ const constants = {
     root: "/",
     login: "/login",
   },
+  apis: {},
 };
 
 export default constants;
