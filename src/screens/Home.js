@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <Body>
-      <div>Home</div>
+      <div className="text-[22px] font-medium leading-8">Learn vocabulary</div>
       <button onClick={() => setStore({ isAuthenticated: false }, true)}>
         Logout
       </button>

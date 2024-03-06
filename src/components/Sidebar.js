@@ -55,7 +55,7 @@ const Sidebar = () => {
               width={31}
             />
           </div>
-          <span className="font-medium text-white text-sm leading-6">
+          <span className="font-medium text-custom text-white text-sm leading-6">
             AdaptiveIELTS
           </span>
         </div>
@@ -63,7 +63,7 @@ const Sidebar = () => {
           {sidebarData?.map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 h-[52px] mb-2.5 text-c5c5c5 py-3.5 px-6 cursor-pointer"
+              className="flex items-center gap-3 h-[52px] mb-2.5 text-c5c5c5 font-medium py-3.5 px-6 cursor-pointer"
               onClick={() => navigate(item?.url)}
             >
               <img

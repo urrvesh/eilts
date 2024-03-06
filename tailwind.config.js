@@ -9,6 +9,9 @@ module.exports = {
       xl: "1440px",
       print: { raw: "print" },
     },
+    fontFamily: {
+      'custom': ["Red Hat Display", "sans-serif"],
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,

@@ -8,7 +8,7 @@ const Body = ({ children }) => {
       <Sidebar />
       <div className="w-full">
         <Header />
-        <div className="">{children}</div>
+        <div className="max-h-[calc(100vh-5rem)] p-8 overflow-x-hidden overflow-y-auto">{children}</div>
       </div>
     </div>
   );
