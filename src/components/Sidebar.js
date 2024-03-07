@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
   const sidebarData = [
     {
@@ -50,28 +50,20 @@ const Sidebar = () => {
       <div className="">
         <div className="flex items-center h-20 gap-3 px-6 py-5">
           <div className="flex items-center justify-center h-10 w-10 bg-white rounded-[10px]">
-            <img
-              src={process.env.PUBLIC_URL + "/icons/ilts_icon.png"}
-              alt="AdaptiveIELTS"
-              width={31}
-            />
+            <img src={process.env.PUBLIC_URL + "/icons/ilts_icon.png"} alt="AdaptiveIELTS" width={31} />
           </div>
-          <span className="font-medium text-custom text-white text-sm leading-6">
-            AdaptiveIELTS
-          </span>
+          <span className="font-medium text-custom text-white text-sm leading-6">AdaptiveIELTS</span>
         </div>
         <div className="mt-6 ltr  max-h-[calc(100vh-26.4rem)] overflow-y-auto">
           {sidebarData?.map((item, index) => (
             <div
               key={index}
-              className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${(location.pathname).includes(item.url) ? "bg-1F2225 border-s-[3px] text-white" : "text-c5c5c5"}`}
+              className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${
+                location.pathname.includes(item.url) ? "bg-1F2225 border-s-[3px] text-white" : "text-c5c5c5"
+              }`}
               onClick={() => navigate(item?.url)}
             >
-              <img
-                width={24}
-                src={item?.icon}
-                alt={item?.label}
-              />
+              <img width={24} src={item?.icon} alt={item?.label} />
               <span>{item?.label}</span>
             </div>
           ))}
@@ -79,49 +71,33 @@ const Sidebar = () => {
       </div>
       <div className="">
         <div className="flex items-center gap-[9px] justify-center mb-4">
-          <img
-            height={48}
-            src={process.env.PUBLIC_URL + "/icons/app-store.png"}
-            alt="app-store"
-          />
-          <img
-            height={48}
-            src={process.env.PUBLIC_URL + "/icons/google-play-store.png"}
-            alt="google-play-store"
-          />
+          <img height={48} src={process.env.PUBLIC_URL + "/icons/app-store.png"} alt="app-store" />
+          <img height={48} src={process.env.PUBLIC_URL + "/icons/google-play-store.png"} alt="google-play-store" />
         </div>
         <div className="py-6 border-t">
           <div
-            className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${(location.pathname).includes("help") ? "text-white" : "text-c5c5c5"}`}
+            className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${
+              location.pathname.includes("help") ? "text-white" : "text-c5c5c5"
+            }`}
             onClick={() => navigate(constants.route.help)}
           >
-            <img
-              width={24}
-              src={process.env.PUBLIC_URL + "/icons/Help.svg"}
-              alt="help"
-            />
+            <img width={24} src={process.env.PUBLIC_URL + "/icons/Help.svg"} alt="help" />
             <span>Help</span>
           </div>
           <div
-            className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${(location.pathname).includes("setting") ? "text-white" : "text-c5c5c5"}`}
+            className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${
+              location.pathname.includes("setting") ? "text-white" : "text-c5c5c5"
+            }`}
             onClick={() => navigate(constants.route.setting)}
           >
-            <img
-              width={24}
-              src={process.env.PUBLIC_URL + "/icons/Settings.svg"}
-              alt="setting"
-            />
+            <img width={24} src={process.env.PUBLIC_URL + "/icons/Settings.svg"} alt="setting" />
             <span>Setting</span>
           </div>
           <div
             className="flex items-center gap-3 h-[52px] mb-2.5 text-c5c5c5 py-3.5 px-6 cursor-pointer"
             onClick={() => navigate(constants.route.help)}
           >
-            <img
-              width={24}
-              src={process.env.PUBLIC_URL + "/icons/logout.svg"}
-              alt="logout"
-            />
+            <img width={24} src={process.env.PUBLIC_URL + "/icons/logout.svg"} alt="logout" />
             <span>Logout</span>
           </div>
         </div>

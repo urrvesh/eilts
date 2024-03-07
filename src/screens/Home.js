@@ -8,10 +8,8 @@ const Home = () => {
 
   return (
     <Body>
-      <div className="text-[22px] font-medium leading-8">Learn vocabulary</div>
-      <button onClick={() => setStore({ isAuthenticated: false }, true)}>
-        Logout
-      </button>
+      <div className="text-[22px] font-medium leading-8">Home</div>
+      <button onClick={() => setStore({ isAuthenticated: false }, true)}>Logout</button>
     </Body>
   );
 };
