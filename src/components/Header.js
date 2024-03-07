@@ -1,10 +1,12 @@
 import React from "react";
 import Avatar from "./Avatar";
+import Breadcrumb from "./Breadcrumb";
 
-const Header = () => {
+const Header = ({ breadcrumb = [], setDarkMode, darkMode }) => {
   return (
     <div className="flex items-center justify-between h-20 w-full border-b px-8">
-      <div className="font-normal text-base leading-6">Welcome back, Punit! 👋</div>
+      {breadcrumb?.length <= 0 ? <div className="font-normal text-base leading-6">Welcome back, Punit! 👋</div> : <Breadcrumb data={breadcrumb} />}
+      {/* <button onClick={()=>setDarkMode(!darkMode)}>Dart</button> */}
       <div className="flex items-center">
         <div className="border-r relative">
           <div className="flex items-center justify-center h-12 w-12 rounded-full border mr-5 cursor-pointer">
@@ -14,7 +16,7 @@ const Header = () => {
             </span>
           </div>
         </div>
-        <Avatar className="ml-5  cursor-pointer" src={process.env.PUBLIC_URL + "/icons/avatar.png"} alt="Avatar" />
+        <Avatar className="ml-5 cursor-pointer" src={process.env.PUBLIC_URL + "/icons/avatar.png"} alt="Avatar" />
       </div>
     </div>
   );
