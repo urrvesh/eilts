@@ -26,7 +26,7 @@ const VocabularyCard = ({ name, count, onClick = () => {} }) => {
         </div>
       </div>
       <div
-        className="h-8 w-8 flex justify-center items-center absolute border rounded border-413543 top-6 right-6 cursor-pointer"
+        className="h-8 w-8 flex justify-center items-center absolute border rounded border-4135431a top-6 right-6 cursor-pointer"
         onClick={onClick}
       >
         <img
