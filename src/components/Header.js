@@ -26,7 +26,7 @@ const Header = ({ breadcrumb = [] ,setDarkMode, darkMode}) => {
           </div>
         </div>
         <Avatar
-          className="ml-5  cursor-pointer"
+          className="ml-5 cursor-pointer"
           src={process.env.PUBLIC_URL + "/icons/avatar.png"}
           alt="Avatar"
         />
