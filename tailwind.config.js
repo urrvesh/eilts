@@ -56,7 +56,13 @@ module.exports = {
         A700: "#616161",
       },
     }),
-    extend: {},
+    extend: {
+      backgroundImage: {
+        none: "none",
+        "vocab-card-background":
+          "url('../public/backgrounds/background-pattern.png')",
+      },
+    },
   },
   plugins: [],
   darkMode: "class",

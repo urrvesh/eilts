@@ -1,8 +1,28 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const VocabularyCard = ({ name, count, onClick = () => {} }) => {
+const VocabularyCard = ({ name, count, onClick = () => {}, key, ...rest }) => {
   return (
-    <div className="p-8 rounded-xl bg-f1f6f9 w-[669px] relative">
+    <motion.div
+      className="p-8 rounded-xl bg-f1f6f9 w-[669px] relative"
+      variants={{
+        show: {
+          y: 0,
+          opacity: 1,
+          transition: {
+            y: { stiffness: 1000, velocity: -100 },
+          },
+        },
+        hidden: {
+          y: 100,
+          opacity: 0,
+          transition: {
+            y: { stiffness: 1000 },
+          },
+        },
+      }}
+      {...rest}
+    >
       <div className="flex space-x-2">
         <span className="font-medium text-xl leading-5 text-101828">{name}</span>
         <span className="font-medium text-sm leading-5 text-475467">({count})</span>
@@ -27,7 +47,7 @@ const VocabularyCard = ({ name, count, onClick = () => {} }) => {
       >
         <img width={24} height={24} src={process.env.PUBLIC_URL + "/icons/arrow-right.svg"} alt="" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

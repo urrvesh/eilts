@@ -2,7 +2,9 @@ import React from "react";
 
 const VocabularyCard3 = ({ className }) => {
   return (
-    <div className={`bg-1f2544 rounded-xl p-10 relative text-white ${className}`}>
+    <div
+      className={`bg-1f2544 rounded-xl p-10 relative text-white bg-vocab-card-background bg-auto bg-left-top bg-no-repeat ${className}`}
+    >
       <div className="h-8 w-8 flex items-center justify-center rounded border border-white absolute top-4 right-4 cursor-pointer">
         <img src={process.env.PUBLIC_URL + "/icons/repeat.svg"} alt="" />
       </div>
@@ -18,9 +20,15 @@ const VocabularyCard3 = ({ className }) => {
         </div>
       </div>
       <div className="flex flex-col space-y-1.5 mt-[60px]">
-        <button className="bg-12b764 h-11 rounded-md">I can use this word in ielts!</button>
-        <button className="bg-ffab0a h-11 rounded-md">I need to review this word!</button>
-        <button className="bg-f04438 h-11 rounded-md">This word is difficult to use in ielts!</button>
+        <button className="bg-12b764 h-11 rounded-md">
+          I can use this word in ielts!
+        </button>
+        <button className="bg-ffab0a h-11 rounded-md">
+          I need to review this word!
+        </button>
+        <button className="bg-f04438 h-11 rounded-md">
+          This word is difficult to use in ielts!
+        </button>
       </div>
     </div>
   );
