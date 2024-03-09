@@ -56,7 +56,9 @@ const VocabularyDetails = () => {
             <span>30% Difficult</span>
           </div>
         </motion.div>
-        <VocabularyCard3 className="mt-5" />
+        <div className="flex flex-col">
+          <VocabularyCard3 className="mt-5" />
+        </div>
       </div>
       <motion.div
         variants={{

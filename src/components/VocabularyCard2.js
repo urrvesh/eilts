@@ -11,10 +11,9 @@ const VocabularyCard2 = ({ name, data }) => {
           scale: 1,
           zIndex: 1,
           transition: {
-            duration: 1.4,
             type: "spring",
-            damping: 5,
-            stiffness: 70,
+            damping: 20,
+            stiffness: 100,
           },
         },
       }}
