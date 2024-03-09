@@ -16,7 +16,7 @@ const VocabularyCard3 = ({ ...rest }) => {
     <div {...rest}>
       <div
         onClick={handleFlip}
-        style={{ perspective: 2000 }}
+        style={{ perspective: 2000, height:"24rem" }}
         className="relative"
       >
         <motion.div
