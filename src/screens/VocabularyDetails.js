@@ -10,6 +10,34 @@ const VocabularyDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  //   const [index, setIndex] = React.useState(0);
+  //   const [direction, setDirection] = React.useState(0);
+  //   const colors = [
+  //     "#FFCCCB",
+  //     "#FFD700",
+  //     "#FFE4B5",
+  //     "#F0E68C",
+  //     "#98FB98",
+  //     "#ADD8E6",
+  //     "#F0FFF0",
+  //     "#FFFACD"
+  // ]
+
+  //   const variants = {
+  //     initial: (direction) => {
+  //       return { x: direction > 0 ? 200 : -200, scale: 0.5 };
+  //     },
+  //     animate: {
+  //       x: 0,
+  //       scale: 1,
+  //       transition: {
+  //         duration: 0.6,
+  //       },
+  //     },
+  //     exit: (direction) => {
+  //       return { x: direction > 0 ? -200 : 200, scale: 0.5 };
+  //     },
+  //   };
 
   return (
     <Body
@@ -56,6 +84,45 @@ const VocabularyDetails = () => {
             <span>30% Difficult</span>
           </div>
         </motion.div>
+        {/* <div className="slideshow m-auto w-full aspect-video relative overflow-hidden rounded-md">
+          <AnimatePresence initial={false}>
+            <motion.div
+              variants={variants}
+              animate="animate"
+              initial="initial"
+              exit="exit"
+              className="slides absolute top-0 left-0 w-full h-full flex items-center justify-between p-8"
+              style={{ background: colors[index] }}
+              key={index}
+              custom={direction}
+            >
+              <button
+                onClick={() => {
+                  setDirection(1);
+                  if (index === colors?.length - 1) {
+                    setIndex(0);
+                    return;
+                  }
+                  setIndex(index + 1);
+                }}
+              >
+                next
+              </button>
+              <button
+                onClick={() => {
+                  setDirection(-1);
+                  if (index === 0) {
+                    setIndex(colors?.length - 1);
+                    return;
+                  }
+                  setIndex(index - 1);
+                }}
+              >
+                previous
+              </button>
+            </motion.div>
+          </AnimatePresence>
+        </div> */}
         <div className="flex flex-col">
           <VocabularyCard3 className="mt-5" />
         </div>
