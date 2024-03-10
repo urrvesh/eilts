@@ -10,6 +10,9 @@ const VocabularyDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+
+  //SLIDING ANIMATION CODE -----------
+
   //   const [index, setIndex] = React.useState(0);
   //   const [direction, setDirection] = React.useState(0);
   //   const colors = [
@@ -84,6 +87,8 @@ const VocabularyDetails = () => {
             <span>30% Difficult</span>
           </div>
         </motion.div>
+        {/* SLIDING ANIMATION CODE ----------- */}
+        
         {/* <div className="slideshow m-auto w-full aspect-video relative overflow-hidden rounded-md">
           <AnimatePresence initial={false}>
             <motion.div
