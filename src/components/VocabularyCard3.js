@@ -14,7 +14,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
 
   return (
     <div {...rest}>
-      <div onClick={handleFlip} style={{ perspective: 2000, height: "26rem" }} className="relative z-50">
+      <div onClick={handleFlip} style={{ perspective: 2000, height: "28rem" }} className="relative z-50">
         <motion.div
           initial={false}
           animate={{ rotateY: isFlipped ? 180 : 360 }}
@@ -36,7 +36,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="h-8 w-8 flex items-center justify-center rounded border border-white absolute top-4 right-4 cursor-pointer">
-              <img src={process.env.PUBLIC_URL + "/icons/repeat.svg"} alt="" />
+              <img className="h-5 w-5" src={process.env.PUBLIC_URL + "/icons/repeat.svg"} alt="" />
             </div>
             <div className="flex items-center">
               <span className="text-[32px] leading-5 font-medium mr-[106px]">Rise</span>
