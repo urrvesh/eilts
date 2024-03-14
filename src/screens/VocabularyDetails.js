@@ -5,42 +5,16 @@ import Body from "../components/Body";
 import constants from "../utils/constants";
 import VocabularyCard2 from "../components/VocabularyCard2";
 import VocabularyCard3 from "../components/VocabularyCard3";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 const VocabularyDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const carouselRef = React.useRef(null);
   const queryParams = new URLSearchParams(location.search);
 
-  //SLIDING ANIMATION CODE -----------
-
-  //   const [index, setIndex] = React.useState(0);
-  //   const [direction, setDirection] = React.useState(0);
-  //   const colors = [
-  //     "#FFCCCB",
-  //     "#FFD700",
-  //     "#FFE4B5",
-  //     "#F0E68C",
-  //     "#98FB98",
-  //     "#ADD8E6",
-  //     "#F0FFF0",
-  //     "#FFFACD"
-  // ]
-
-  //   const variants = {
-  //     initial: (direction) => {
-  //       return { x: direction > 0 ? 200 : -200, scale: 0.5 };
-  //     },
-  //     animate: {
-  //       x: 0,
-  //       scale: 1,
-  //       transition: {
-  //         duration: 0.6,
-  //       },
-  //     },
-  //     exit: (direction) => {
-  //       return { x: direction > 0 ? -200 : 200, scale: 0.5 };
-  //     },
-  //   };
+  const data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
   return (
     <Body
@@ -56,17 +30,12 @@ const VocabularyDetails = () => {
       <div className="w-full py-8 pr-8 pl-6">
         <motion.div
           variants={{
-            offscreen: {
-              y: 30,
-              opacity: 0,
-            },
+            offscreen: { y: 30, opacity: 0 },
             onscreen: {
               y: 0,
               opacity: 1,
               zIndex: 1,
-              transition: {
-                duration: 0.6,
-              },
+              transition: { duration: 0.6 },
             },
           }}
           initial="offscreen"
@@ -87,60 +56,26 @@ const VocabularyDetails = () => {
             <span>30% Difficult</span>
           </div>
         </motion.div>
-        {/* SLIDING ANIMATION CODE ----------- */}
-        
-        {/* <div className="slideshow m-auto w-full aspect-video relative overflow-hidden rounded-md">
-          <AnimatePresence initial={false}>
-            <motion.div
-              variants={variants}
-              animate="animate"
-              initial="initial"
-              exit="exit"
-              className="slides absolute top-0 left-0 w-full h-full flex items-center justify-between p-8"
-              style={{ background: colors[index] }}
-              key={index}
-              custom={direction}
-            >
-              <button
-                onClick={() => {
-                  setDirection(1);
-                  if (index === colors?.length - 1) {
-                    setIndex(0);
-                    return;
-                  }
-                  setIndex(index + 1);
-                }}
-              >
-                next
-              </button>
-              <button
-                onClick={() => {
-                  setDirection(-1);
-                  if (index === 0) {
-                    setIndex(colors?.length - 1);
-                    return;
-                  }
-                  setIndex(index - 1);
-                }}
-              >
-                previous
-              </button>
-            </motion.div>
-          </AnimatePresence>
-        </div> */}
-        <div className="flex flex-col">
-          <VocabularyCard3 className="mt-5" />
-        </div>
+        <Carousel className="mt-5" ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false}>
+          {data.map((d, i) => (
+            <VocabularyCard3
+              key={i}
+              onClick={() => {
+                const carouselInstance = carouselRef.current;
+                if (carouselInstance) {
+                  carouselInstance?.moveTo(carouselInstance?.state?.selectedItem + 1);
+                }
+              }}
+            />
+          ))}
+        </Carousel>
       </div>
       <motion.div
         variants={{
           hidden: { opacity: 0 },
           show: {
             opacity: 1,
-            transition: {
-              delayChildren: 0.1,
-              staggerChildren: 0.2,
-            },
+            transition: { delayChildren: 0.1, staggerChildren: 0.2 },
           },
         }}
         initial="hidden"
