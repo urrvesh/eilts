@@ -56,7 +56,7 @@ const VocabularyDetails = () => {
             <span>30% Difficult</span>
           </div>
         </motion.div>
-        <Carousel className="mt-5" ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false}>
+        <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false}>
           {data.map((d, i) => (
             <VocabularyCard3
               key={i}
