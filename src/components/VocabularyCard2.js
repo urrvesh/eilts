@@ -1,22 +1,8 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 const VocabularyCard2 = ({ name, data }) => {
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, scale: 0.5 },
-        show: {
-          opacity: 1,
-          scale: 1,
-          zIndex: 1,
-          transition: {
-            type: "spring",
-            damping: 20,
-            stiffness: 100,
-          },
-        },
-      }}
+    <div
       className="p-5 bg-f5f5f5 space-y-3 rounded-xl"
     >
       <span className="font-medium text-base leading-5">{name}:</span>
@@ -30,7 +16,7 @@ const VocabularyCard2 = ({ name, data }) => {
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

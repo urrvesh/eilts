@@ -70,19 +70,7 @@ const VocabularyDetails = () => {
           ))}
         </Carousel>
       </div>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: { delayChildren: 0.1, staggerChildren: 0.2 },
-          },
-        }}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="min-w-[340px] min-h-[calc(100vh-5rem)] border-l p-6 space-y-4"
-      >
+      <div className="min-w-[340px] min-h-[calc(100vh-5rem)] border-l p-6 space-y-4">
         <VocabularyCard2
           key={1}
           name="Collocation"
@@ -101,7 +89,7 @@ const VocabularyDetails = () => {
             { label: "Media & advertising", background: "bg-ffc5c5" },
           ]}
         />
-      </motion.div>
+      </div>
     </Body>
   );
 };

@@ -14,7 +14,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
 
   return (
     <div {...rest}>
-      <div onClick={handleFlip} style={{ perspective: 2000, height: "24rem" }} className="relative">
+      <div onClick={handleFlip} style={{ perspective: 2000, height: "26rem" }} className="relative z-50">
         <motion.div
           initial={false}
           animate={{ rotateY: isFlipped ? 180 : 360 }}
