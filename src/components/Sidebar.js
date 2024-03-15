@@ -54,11 +54,11 @@ const Sidebar = () => {
           </div>
           <span className="font-medium text-custom text-white text-sm leading-6">AdaptiveIELTS</span>
         </div>
-        <div className="mt-6 ltr  max-h-[calc(100vh-26.4rem)] overflow-y-auto">
+        <div className="mt-6 ltr max-h-[calc(100vh-26.4rem)] overflow-y-auto">
           {sidebarData?.map((item, index) => (
             <div
               key={index}
-              className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer ${
+              className={`flex items-center gap-3 h-[52px] mb-2.5 font-medium py-3.5 px-6 cursor-pointer hover:text-white ${
                 location.pathname.includes(item.url) ? "bg-1F2225 border-s-[3px] text-white" : "text-c5c5c5"
               }`}
               onClick={() => navigate(item?.url)}
