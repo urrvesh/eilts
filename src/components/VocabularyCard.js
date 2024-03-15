@@ -9,16 +9,12 @@ const VocabularyCard = ({ name, count, onClick = () => {}, key, ...rest }) => {
         show: {
           y: 0,
           opacity: 1,
-          transition: {
-            y: { stiffness: 1000, velocity: -100 },
-          },
+          transition: { y: { stiffness: 1000, velocity: -100 } },
         },
         hidden: {
           y: 100,
           opacity: 0,
-          transition: {
-            y: { stiffness: 1000 },
-          },
+          transition: { y: { stiffness: 1000 } },
         },
       }}
       {...rest}

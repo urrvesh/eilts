@@ -13,16 +13,11 @@ const Vocabulary = () => {
     <Body>
       <motion.div
         variants={{
-          offscreen: {
-            x: 50,
-            opacity: 0,
-          },
+          offscreen: { x: 50, opacity: 0 },
           onscreen: {
             x: 0,
             opacity: 1,
-            transition: {
-              duration: 0.6,
-            },
+            transition: { duration: 0.6 },
           },
         }}
         initial="offscreen"
@@ -36,10 +31,7 @@ const Vocabulary = () => {
         variants={{
           show: {
             opacity: 1,
-            transition: {
-              delayChildren: 0.1,
-              staggerChildren: 0.1,
-            },
+            transition: { delayChildren: 0.1, staggerChildren: 0.1 },
           },
           hidden: { opacity: 0 },
         }}
@@ -53,12 +45,7 @@ const Vocabulary = () => {
             key={index}
             name={`Word Set ${index + 1}`}
             count={2 * index + 1}
-            onClick={() =>
-              navigate(
-                constants.route.vocabulary +
-                  `/${index + 1}?name=Word Set ${index + 1}`
-              )
-            }
+            onClick={() => navigate(constants.route.vocabulary + `/${index + 1}?name=Word Set ${index + 1}`)}
           />
         ))}
       </motion.div>
