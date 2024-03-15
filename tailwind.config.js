@@ -59,8 +59,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         none: "none",
-        "vocab-card-background":
-          "url('../public/backgrounds/background-pattern.png')",
+        "vocab-card-background": "url('../public/backgrounds/background-pattern.png')",
       },
     },
   },
