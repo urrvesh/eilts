@@ -18,13 +18,7 @@ const VocabularyDetails = () => {
 
   return (
     <Body
-      breadcrumb={[
-        {
-          label: "Vocabulary",
-          onClick: () => navigate(constants.route.vocabulary),
-        },
-        { label: queryParams?.get("name") },
-      ]}
+      breadcrumb={[{ label: "Vocabulary", onClick: () => navigate(constants.route.vocabulary) }, { label: queryParams?.get("name") }]}
       className="flex !p-0"
     >
       <div className="w-full py-8 pr-8 pl-6">
