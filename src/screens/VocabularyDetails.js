@@ -56,17 +56,9 @@ const VocabularyDetails = () => {
             <span>30% Difficult</span>
           </div>
         </motion.div>
-        <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false}>
+        <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500}>
           {data.map((d, i) => (
-            <VocabularyCard3
-              key={i}
-              onClick={() => {
-                const carouselInstance = carouselRef.current;
-                if (carouselInstance) {
-                  carouselInstance?.moveTo(carouselInstance?.state?.selectedItem + 1);
-                }
-              }}
-            />
+            <VocabularyCard3 key={i} onClick={() => carouselRef.current?.moveTo(carouselRef.current?.state?.selectedItem + 1)} />
           ))}
         </Carousel>
       </div>
