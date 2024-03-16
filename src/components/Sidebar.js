@@ -2,7 +2,7 @@ import React from "react";
 import constants from "../utils/constants";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({sidebarAction,screenSize, setSidebarAction=()=>{}}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -45,16 +45,22 @@ const Sidebar = () => {
     },
   ];
 
+  if (!sidebarAction && screenSize <= 768) {
+    return null;
+  }
+
   return (
-    <div className="flex flex-col min-w-[312px] bg-sidebarColor justify-between">
+    <div className="w-full lg:w-fit md:w-full sm:w-full h-full bg-black bg-opacity-25 backdrop-blur-sm absolute lg:relative md:absolute sm:absolute z-[99]">
+    <div className="w-full absolute top-0 left-0 h-full" role="presentation" onClick={() => setSidebarAction(false)} />
+    <div className="flex flex-col w-[312px] min-w-[312px] h-full bg-sidebarColor justify-between relative z-999">
       <div className="">
-        <div className="flex items-center h-20 gap-3 px-6 py-5">
+        <div className="flex items-center h-20 gap-3 px-6 py-5 border-b">
           <div className="flex items-center justify-center h-10 w-10 bg-white rounded-[10px]">
             <img src={process.env.PUBLIC_URL + "/icons/ilts_icon.png"} alt="AdaptiveIELTS" width={31} />
           </div>
           <span className="font-medium text-custom text-white text-sm leading-6">AdaptiveIELTS</span>
         </div>
-        <div className="mt-6 ltr max-h-[calc(100vh-26.4rem)] overflow-y-auto">
+        <div className="mt-6 ltr max-h-[calc(100vh-25.6rem)] overflow-y-auto">
           {sidebarData?.map((item, index) => (
             <div
               key={index}
@@ -102,6 +108,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const VocabularyCard2 = ({ name, data }) => {
       <span className="font-medium text-base leading-5">{name}:</span>
       <div className="space-y-2.5">
         {data?.map((item, index) => (
-          <div key={index} className={`h-8 w-fit flex items-center justify-center px-3 text-sm font-normal leading-5 rounded ${item?.background}`}>
+          <div key={index} className={`h-8 w-fit flex items-center justify-center px-3 text-sm font-normal leading-5 rounded truncate ${item?.background}`}>
             {item?.label}
           </div>
         ))}

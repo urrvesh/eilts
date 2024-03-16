@@ -7,6 +7,7 @@ import VocabularyCard2 from "../components/VocabularyCard2";
 import VocabularyCard3 from "../components/VocabularyCard3";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import CircleProgressBar from "../components/CircleProgressBar";
 
 const VocabularyDetails = () => {
   const navigate = useNavigate();
@@ -16,12 +17,18 @@ const VocabularyDetails = () => {
 
   const data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
+  const progressData = [
+    { percentage: "10", label: "Learned", color: "#12b764" },
+    { percentage: "60", label: "Need to review", color: "#ffab0a" },
+    { percentage: "30", label: "Difficult", color: "#f04438" },
+  ];
+
   return (
     <Body
       breadcrumb={[{ label: "Vocabulary", onClick: () => navigate(constants.route.vocabulary) }, { label: queryParams?.get("name") }]}
       className="flex !p-0"
     >
-      <div className="w-full py-8 pr-8 pl-6">
+      <div className="w-full py-8 lg:py-8 md:py-6 sm:py-4 pr-8 lg:pr-8 md:pr-6 sm:pr-4 pl-4 lg:pl-8 md:pl-6 sm:pl-4 overflow-y-auto">
         <motion.div
           variants={{
             offscreen: { y: 30, opacity: 0 },
@@ -35,19 +42,30 @@ const VocabularyDetails = () => {
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.6 }}
-          className="flex gap-8"
+          className="flex gap-8 w-full"
         >
-          <div className="w-fit flex items-center font-normal text-sm text-475467 leading-5 space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-12b764"></div>
-            <span>10% Learned</span>
+          <div className="flex lg:flex md:hidden sm:hidden gap-x-10">
+            {progressData.map((item, index) => (
+              <div className="w-fit flex items-center font-normal text-sm text-475467 leading-5 space-x-1" key={index} >
+                <div
+                  className={`h-3 w-3 rounded-[3px] bg-${item.color.replace("#","")}`}
+                ></div>
+                <span>
+                  {item.percentage + "%"} {item.label}
+                </span>
+              </div>
+            ))}
           </div>
-          <div className="w-fit flex items-center font-normal text-sm text-475467 leading-5 space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-ffab0a"></div>
-            <span>60% Need to review</span>
-          </div>
-          <div className="w-fit flex items-center font-normal text-sm text-475467 leading-5 space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-f04438"></div>
-            <span>30% Difficult</span>
+          <div className="flex lg:hidden md:flex sm:flex w-full justify-around">
+            {progressData.map((item, index) => (
+              <CircleProgressBar
+                key={index}
+                height={180}
+                progress={item.percentage}
+                loaderName={item.label}
+                color={item.color}
+              />
+            ))}
           </div>
         </motion.div>
         <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500}>
@@ -56,7 +74,7 @@ const VocabularyDetails = () => {
           ))}
         </Carousel>
       </div>
-      <div className="min-w-[340px] min-h-[calc(100vh-5rem)] border-l p-6 space-y-4">
+      <div className="min-w-[280px] lg:min-w-[340px] md:min-w-[280px] min-h-[calc(100vh-5rem)] border-l p-6 space-y-4 block lg:block md:block sm:hidden ">
         <VocabularyCard2
           key={1}
           name="Collocation"
