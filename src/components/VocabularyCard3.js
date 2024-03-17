@@ -25,12 +25,12 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
         <motion.div
           initial={false}
           animate={{ rotateY: isFlipped ? 180 : 360 }}
-          transition={{ duration: 0.4, animationDirection: "normal" }}
+          transition={{ duration: 0.1, animationDirection: "normal" }}
           onAnimationComplete={() => setIsAnimating(false)}
           style={{ transition: "transform 0.6s", transformStyle: "preserve-3d" }}
         >
           <div
-            className="bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-contain bg-left bg-no-repeat w-full h-[24rem] flex items-center justify-center absolute"
+            className="bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-contain bg-center bg-no-repeat w-full h-[24rem] flex items-center justify-center absolute"
             style={{ backfaceVisibility: "hidden" }}
           >
             <div className="flex items-center justify-center relative h-full w-full">
