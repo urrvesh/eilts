@@ -30,12 +30,12 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
         style={{ transition: "transform 0.6s", transformStyle: "preserve-3d" }}
       >
         <div
-          className="bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-auto bg-center bg-no-repeat w-full h-[24rem] flex items-center justify-center absolute"
+          className="bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-auto bg-center bg-no-repeat w-full h-[24rem] flex items-center justify-center absolute cursor-pointer"
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="flex items-center justify-center relative h-full w-full">
             <span className="text-[32px] leading-5 font-medium">Rise</span>
-            <span className="flex lg:hidden items-center space-x-2 w-fit font-medium absolute bottom-0">
+            <span className="flex items-center space-x-2 w-fit font-medium absolute bottom-0">
               <img className="h-4 w-4" src={process.env.PUBLIC_URL + "/icons/flip.svg"} alt="flip" />
               <span className="whitespace-nowrap text-xs text-c5c5c5">tap to flip</span>
             </span>
