@@ -23,7 +23,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
 
   return (
     <div className="w-full flex justify-center">
-    <div onClick={handleFlip} style={{ perspective: 5000 }} className="relative mt-5 h-[28rem] lg:h-[38rem] md:h-[38rem] sm:h-[56rem] min-w-10/12 lg:min-w-10/12 md:min-w-[98%] sm:min-w-[98%]" {...rest}>
+    <div onClick={handleFlip} style={{ perspective: 5000 }} className="relative mt-5 h-[43rem] lg:h-[43rem] md:h-[42rem] sm:h-[59rem] min-w-10/12 lg:min-w-10/12 md:min-w-[98%] sm:min-w-[98%]" {...rest}>
       <motion.div
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 360 }}
@@ -81,11 +81,17 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
             </div>
           </div>
           <div className="flex flex-col w-full mt-8 lg:mt-8 md:mt-6 sm:mt-6 items-start">
+             <span className="font-medium text-base leading-5">Synonym:</span>
+             <div className="text-start mt-3 text-sm">
+              adjust, adapt, become accustomed, get used
+             </div>
+          </div>
+          <div className="flex flex-col w-full mt-8 lg:mt-8 md:mt-6 sm:mt-6 items-start">
              <span className="font-medium text-base leading-5">Examples:</span>
               <ul className="flex flex-col items-start font-normal text-sm leading-5 space-y-1.5 mt-3">
-                <li className="list-disc text-start ml-4">Parents should work to rise awareness.</li>
-                <li className="list-disc text-start ml-4">The rise of social media has changes to woywe.</li>
-                <li className="list-disc text-start ml-4">With the ongoing effects of global warming, Coastal.</li>
+                <li className="list-disc text-start ml-5">Parents should work to rise awareness.</li>
+                <li className="list-disc text-start ml-5">The rise of social media has changes to woywe.</li>
+                <li className="list-disc text-start ml-5">With the ongoing effects of global warming, Coastal.</li>
               </ul>
           </div>
           <div className="flex flex-col space-y-1.5 mt-8 lg:mt-8 md:mt-6 sm:mt-6">
