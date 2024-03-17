@@ -2,7 +2,7 @@ import React from "react";
 
 const Breadcrumb = ({ data }) => {
   return (
-    <div className="flex items-center gap-x-2 text-sm font-medium text-475467">
+    <div className="flex items-center gap-x-2 text-sm font-medium text-475467 lg:flex md:hidden sm:hidden">
       {data?.map((item, index) => (
         <span className="flex items-center gap-x-2" key={index}>
           <span className="cursor-pointer hover:text-344054" onClick={item?.onClick}>

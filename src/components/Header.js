@@ -2,10 +2,17 @@ import React from "react";
 import Avatar from "./Avatar";
 import Breadcrumb from "./Breadcrumb";
 
-const Header = ({ breadcrumb = [], setDarkMode, darkMode }) => {
+const Header = ({ breadcrumb = [], setDarkMode = () => {}, darkMode, setSidebarAction = () => {} }) => {
   return (
-    <div className="flex items-center justify-between h-20 w-full border-b px-8">
-      {breadcrumb?.length <= 0 ? <div className="font-normal text-base leading-6">Welcome back, Punit! 👋</div> : <Breadcrumb data={breadcrumb} />}
+    <div className="flex items-center justify-between h-20 w-full border-b px-6 lg:px-8 md:px-6 sm:px-4">
+      <div className="block lg:hidden md:block sm:block">
+        <img width={20} height={20} src={process.env.PUBLIC_URL + "/icons/menu.svg"} alt="" onClick={() => setSidebarAction(true)} />
+      </div>
+      {breadcrumb?.length <= 0 ? (
+        <div className="font-normal text-base leading-6 hidden lg:block md:hidden sm:hidden ">Welcome back, Punit! 👋</div>
+      ) : (
+        <Breadcrumb data={breadcrumb} />
+      )}
       {/* <button onClick={()=>setDarkMode(!darkMode)}>Dart</button> */}
       <div className="flex items-center">
         <div className="border-r relative">

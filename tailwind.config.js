@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     screens: {
       sm: "320px",
-      md: "960px",
+      md: "768px",
       lg: "1024px",
       xl: "1440px",
       print: { raw: "print" },
@@ -38,6 +38,7 @@ module.exports = {
       f4c7ab: "#f4c7ab",
       c6dcce: "#c6dcce",
       ffc5c5: "#ffc5c5",
+      "ffffff12":"#ffffff12",
       gray: {
         50: "#FAFAFA",
         100: "#F5F5F5",
