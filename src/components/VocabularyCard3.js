@@ -6,9 +6,17 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
   const [isAnimating, setIsAnimating] = React.useState(false);
 
   const handleFlip = () => {
-    if (!isAnimating) {
+    if (!isAnimating && !isFlipped) {
       setIsFlipped(!isFlipped);
-      setIsAnimating(!isAnimating);
+      setIsAnimating(true);
+    }
+  };
+
+  const handleRepeatFlip = (e) => {
+    e.stopPropagation();
+    if (!isAnimating && isFlipped) {
+      setIsFlipped(false);
+      setIsAnimating(true);
     }
   };
 
@@ -28,7 +36,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
             <div className="flex items-center justify-center relative h-full w-full">
               <span className="text-[32px] leading-5 font-medium">Rise</span>
               <span className="flex lg:hidden items-center space-x-2 w-fit font-medium absolute bottom-0">
-              <img className="h-4 w-4" src={process.env.PUBLIC_URL + "/icons/flip.svg"} alt="" />
+              <img className="h-4 w-4" src={process.env.PUBLIC_URL + "/icons/flip.svg"} alt="flip" />
                 <span className="whitespace-nowrap text-xs text-c5c5c5">tap to flip</span>
               </span>
             </div>
@@ -38,7 +46,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
             style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="h-8 w-8 flex items-center justify-center rounded border border-white absolute top-4 right-4 cursor-pointer" onClick={handleFlip}>
+            <div className="h-8 w-8 flex items-center justify-center rounded border border-white absolute top-4 right-4 cursor-pointer" onClick={handleRepeatFlip}>
               <img className="h-5 w-5" src={process.env.PUBLIC_URL + "/icons/repeat.svg"} alt="" />
             </div>
             <div className="flex flex-col lg:flex-row md:flex-col sm:flex-col">
