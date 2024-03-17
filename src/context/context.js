@@ -7,12 +7,15 @@ export const AppContext = React.createContext();
 export const defaultContextValues = {
   isAuthenticated: false,
   isLoading: false,
+  darkMode: false,
+  sidebarAction: false,
   userdata: {},
+  screenSize: window.innerWidth,
+  breadcrumb: [],
 };
 
 export const AppProvider = ({ children }) => {
   const [store, updateStore] = React.useState(defaultContextValues);
-  const [screenSize, setScreenSize] = React.useState(window.innerWidth);
 
   React.useEffect(() => {
     const cachedVariables = Utils.getCachedVariables();
@@ -36,22 +39,21 @@ export const AppProvider = ({ children }) => {
   };
 
   React.useEffect(() => {
-    console.log(store);
-  }, [store]);
-
-  React.useEffect(() => {
     const handleResize = () => {
-      setScreenSize(window.innerWidth);
+      setStore({ screenSize: window.innerWidth });
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  React.useEffect(() => {
+    console.log(store);
+  }, [store]);
+
   return (
     <AppContext.Provider
       value={{
         store,
-        screenSize,
         setStore,
       }}
     >

@@ -1,11 +1,9 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
 
-import { AppContext } from "../context/context";
+import { useContext } from "../context/context";
 
 const Login = () => {
-  // const navigate = useNavigate();
-  const { setStore } = React.useContext(AppContext);
+  const { setStore } = useContext();
 
   return (
     <div>

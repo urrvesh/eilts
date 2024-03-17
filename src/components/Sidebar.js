@@ -3,10 +3,10 @@ import constants from "../utils/constants";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "../context/context";
 
-const Sidebar = ({ sidebarAction, setSidebarAction = () => {} }) => {
+const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { screenSize } = useContext();
+  const { store, setStore } = useContext();
 
   const sidebarData = [
     {
@@ -47,13 +47,13 @@ const Sidebar = ({ sidebarAction, setSidebarAction = () => {} }) => {
     },
   ];
 
-  if (!sidebarAction && screenSize <= 768) {
+  if (!store.sidebarAction && store.screenSize <= 768) {
     return null;
   }
 
   return (
     <div className="w-full lg:w-fit md:w-full sm:w-full h-full bg-black bg-opacity-25 backdrop-blur-sm absolute lg:relative md:absolute sm:absolute z-[99] lg:z-0 sm:z-[99] md:z-[99]">
-      <div className="w-full absolute top-0 left-0 h-full" role="presentation" onClick={() => setSidebarAction(false)} />
+      <div className="w-full absolute top-0 left-0 h-full" role="presentation" onClick={() => setStore({ sidebarAction: false })} />
       <div className="flex flex-col w-[312px] min-w-[312px] h-full bg-sidebarColor justify-between relative z-999">
         <div className="">
           <div className="flex items-center h-20 gap-3 px-6 py-5 border-b">

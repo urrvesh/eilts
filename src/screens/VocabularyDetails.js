@@ -1,19 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
-import Body from "../components/Body";
-import constants from "../utils/constants";
-import VocabularyCard3 from "../components/VocabularyCard3";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import VocabularyCard3 from "../components/VocabularyCard3";
 import { useContext } from "../context/context";
+import constants from "../utils/constants";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const VocabularyDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const carouselRef = React.useRef(null);
   const queryParams = new URLSearchParams(location.search);
-  const { screenSize } = useContext();
+  const { store, setStore } = useContext();
 
   const data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
@@ -23,48 +22,50 @@ const VocabularyDetails = () => {
     { percentage: "30", label: "Difficult", color: "#f04438" },
   ];
 
+  React.useEffect(() => {
+    setStore({ breadcrumb: [{ label: "Vocabulary", onClick: () => navigate(constants.route.vocabulary) }, { label: queryParams?.get("name") }] });
+    return () => {
+      setStore({ breadcrumb: [] });
+    };
+  }, []);
+
   return (
-    <Body
-      breadcrumb={[{ label: "Vocabulary", onClick: () => navigate(constants.route.vocabulary) }, { label: queryParams?.get("name") }]}
-      className="flex !p-0"
-    >
-      <div className="w-full py-8 lg:py-8 md:py-6 sm:py-4 pr-8 lg:pr-8 md:pr-6 sm:pr-4 pl-4 lg:pl-8 md:pl-6 sm:pl-4 overflow-y-auto">
-        <motion.div
-          variants={{
-            offscreen: { y: 30, opacity: 0 },
-            onscreen: {
-              y: 0,
-              opacity: 1,
-              zIndex: 1,
-              transition: { duration: 0.6 },
-            },
-          }}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.6 }}
-          className="flex gap-8 w-full"
-        >
-          <div className="w-full flex lg:justify-start md:justify-between sm:justify-between gap-x-10">
-            {progressData.map((item, i) => (
-              <div key={i} className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
-                <div className="w-fit flex items-center space-x-1">
-                  <div className={`h-3 w-3 rounded-[3px] bg-${item?.color?.replace("#", "")}`} />
-                  <span className="truncate">
-                    {screenSize > 768 && `${item?.percentage}%`} {item?.label}
-                  </span>
-                </div>
-                <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item?.percentage}%</span>
+    <React.Fragment>
+      <motion.div
+        variants={{
+          offscreen: { y: 30, opacity: 0 },
+          onscreen: {
+            y: 0,
+            opacity: 1,
+            zIndex: 1,
+            transition: { duration: 0.6 },
+          },
+        }}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.6 }}
+        className="flex gap-8 w-full"
+      >
+        <div className="w-full flex lg:justify-start md:justify-between sm:justify-between gap-x-10">
+          {progressData.map((item, i) => (
+            <div key={i} className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
+              <div className="w-fit flex items-center space-x-1">
+                <div className={`h-3 w-3 rounded-[3px] bg-${item?.color?.replace("#", "")}`} />
+                <span className="truncate">
+                  {store.screenSize > 768 && `${item?.percentage}%`} {item?.label}
+                </span>
               </div>
-            ))}
-          </div>
-        </motion.div>
-        <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500} showThumbs={false}>
-          {data.map((d, i) => (
-            <VocabularyCard3 key={i} onClick={() => carouselRef.current?.moveTo(carouselRef.current?.state?.selectedItem + 1)} />
+              <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item?.percentage}%</span>
+            </div>
           ))}
-        </Carousel>
-      </div>
-    </Body>
+        </div>
+      </motion.div>
+      <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500} showThumbs={false}>
+        {data.map((d, i) => (
+          <VocabularyCard3 key={i} onClick={() => carouselRef.current?.moveTo(carouselRef.current?.state?.selectedItem + 1)} />
+        ))}
+      </Carousel>
+    </React.Fragment>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Body from "../components/Body";
 import VocabularyCard from "../components/VocabularyCard";
 import constants from "../utils/constants";
 
@@ -10,7 +9,7 @@ const Vocabulary = () => {
   const arrayToMap = new Array(10).fill(null);
 
   return (
-    <Body>
+    <React.Fragment>
       <motion.div
         variants={{
           offscreen: { x: 50, opacity: 0 },
@@ -49,7 +48,7 @@ const Vocabulary = () => {
           />
         ))}
       </motion.div>
-    </Body>
+    </React.Fragment>
   );
 };
 
