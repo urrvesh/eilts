@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import Body from "../components/Body";
 import constants from "../utils/constants";
-import VocabularyCard2 from "../components/VocabularyCard2";
 import VocabularyCard3 from "../components/VocabularyCard3";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -67,26 +66,6 @@ const VocabularyDetails = () => {
           </Carousel>
         </motion.div>
       </div>
-      {/* <div className="min-w-[280px] lg:min-w-[340px] md:min-w-[280px] min-h-[calc(100vh-5rem)] border-l p-6 space-y-4 block lg:block md:block sm:hidden ">
-        <VocabularyCard2
-          key={1}
-          name="Collocation"
-          data={[
-            { label: "Rise awareness", background: "bg-dbc4f0" },
-            { label: "Rise in crime", background: "bg-d4e7c5" },
-            { label: "Rise in usage", background: "bg-aee2ff" },
-          ]}
-        />
-        <VocabularyCard2
-          key={2}
-          name="Categories"
-          data={[
-            { label: "Family & children", background: "bg-f4c7ab" },
-            { label: "Government & society", background: "bg-c6dcce" },
-            { label: "Media & advertising", background: "bg-ffc5c5" },
-          ]}
-        />
-      </div> */}
     </Body>
   );
 };
