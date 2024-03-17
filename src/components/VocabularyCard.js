@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useContext } from "../context/context";
 
-const VocabularyCard = ({ name, count, onClick = () => {}, key, ...rest }) => {
+const VocabularyCard = ({ name, count, onClick = () => {}, ...rest }) => {
   const { screenSize } = useContext();
 
   return (

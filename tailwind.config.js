@@ -38,7 +38,7 @@ module.exports = {
       f4c7ab: "#f4c7ab",
       c6dcce: "#c6dcce",
       ffc5c5: "#ffc5c5",
-      "646a8b":"#646a8b",
+      "ffffff12":"#ffffff12",
       gray: {
         50: "#FAFAFA",
         100: "#F5F5F5",

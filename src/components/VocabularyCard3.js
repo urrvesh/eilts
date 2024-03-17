@@ -76,24 +76,18 @@ const VocabularyCard3 = ({ onClick }) => {
             </div>
             <div className="flex flex-col lg:flex-row md:flex-col sm:flex-col">
               <div className="flex flex-col items-start justify-center max-w-52 border-r lg:border-r md:border-0 sm:border-0">
-              <div className="text-[32px] leading-5 font-medium mr-[106px] flex items-center justify-center lg:justify-center md:justify-start sm:justify-start">
-                Rise
-              </div>
-              <div className="flex flex-col w-full mt-8 lg:mt-8 md:mt-6 sm:mt-6 items-start">
-                  <span className="font-medium text-base leading-5">
-                    Synonym:
-                  </span>
-                  <div className="text-start mt-3 text-sm">
-                    adjust, adapt, become accustomed, get used
-                  </div>
+                <div className="text-[32px] leading-5 font-medium mr-[106px] flex items-center justify-center lg:justify-center md:justify-start sm:justify-start">
+                  Rise
+                </div>
+                <div className="flex flex-col w-full mt-8 lg:mt-8 md:mt-6 sm:mt-6 items-start">
+                  <span className="font-medium text-base leading-5">Synonym:</span>
+                  <div className="text-start mt-3 text-sm">adjust, adapt, become accustomed, get used</div>
                 </div>
               </div>
 
               <div className="flex flex-row lg:flex-row md:flex-row sm:flex-col border-l lg:border-l md:border-0 sm:border-0 pl-5 lg:pl-5 md:pl-0 sm:pl-0 text-left mt-5 lg:mt-0 md:mt-5 sm:mt-5 space-x-4 lg:space-x-4 md:space-x-4 sm:space-x-0 space-y-4 lg:space-y-0 md:space-y-0 sm:space-y-4">
-              <div className="p-5 space-y-3 min-w-52 border rounded-lg border-646a8b">
-                  <span className="font-medium text-base leading-5">
-                    Collocation:
-                  </span>
+                <div className="p-5 space-y-3 min-w-52 border rounded-lg border-ffffff12">
+                  <span className="font-medium text-base leading-5">Collocation:</span>
                   <div className="space-y-2.5">
                     {collocationData?.map((item, index) => (
                       <div
@@ -105,21 +99,19 @@ const VocabularyCard3 = ({ onClick }) => {
                     ))}
                   </div>
                 </div>
-                  <div className="p-5 space-y-3 min-w-52 rounded-lg border border-646a8b">
-                    <span className="font-medium text-base leading-5">
-                      Categories:
-                    </span>
-                    <div className="space-y-2.5">
-                      {categoriesData?.map((item, index) => (
-                        <div
-                          key={index}
-                          className={`h-8 w-fit flex items-center justify-center px-3 text-sm font-normal leading-5 rounded truncate ${item?.background}`}
-                        >
-                          {item?.label}
-                        </div>
-                      ))}
-                    </div>
+                <div className="p-5 space-y-3 min-w-52 rounded-lg border border-ffffff12">
+                  <span className="font-medium text-base leading-5">Categories:</span>
+                  <div className="space-y-2.5">
+                    {categoriesData?.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`h-8 w-fit flex items-center justify-center px-3 text-sm font-normal leading-5 rounded truncate ${item?.background}`}
+                      >
+                        {item?.label}
+                      </div>
+                    ))}
                   </div>
+                </div>
               </div>
             </div>
             <div className="flex flex-col w-full mt-8 lg:mt-8 md:mt-6 sm:mt-6 items-start">
