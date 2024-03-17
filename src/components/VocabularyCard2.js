@@ -5,9 +5,9 @@ const VocabularyCard2 = ({ name, data }) => {
     <div className="p-5 bg-f5f5f5 space-y-3 rounded-xl min-w-52">
       <span className="font-medium text-base leading-5 text-black">{name}:</span>
       <div className="space-y-2.5">
-        {data?.map((item, index) => (
+        {data?.map((item, i) => (
           <div
-            key={index}
+            key={i}
             className={`h-8 w-fit flex items-center justify-center px-3 text-sm font-normal leading-5 rounded truncate ${item?.background}`}
           >
             {item?.label}

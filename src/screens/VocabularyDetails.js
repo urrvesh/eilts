@@ -58,13 +58,11 @@ const VocabularyDetails = () => {
             ))}
           </div>
         </motion.div>
-        <motion.div  initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.5 }} >
-          <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500}>
-            {data.map((d, i) => (
-              <VocabularyCard3 key={i} onClick={() => carouselRef.current?.moveTo(carouselRef.current?.state?.selectedItem + 1)} />
-            ))}
-          </Carousel>
-        </motion.div>
+        <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500} showThumbs={false}>
+          {data.map((d, i) => (
+            <VocabularyCard3 key={i} onClick={() => carouselRef.current?.moveTo(carouselRef.current?.state?.selectedItem + 1)} />
+          ))}
+        </Carousel>
       </div>
     </Body>
   );
