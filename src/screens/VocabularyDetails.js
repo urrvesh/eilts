@@ -16,7 +16,7 @@ const VocabularyDetails = () => {
   const queryParams = new URLSearchParams(location.search);
   const { screenSize } = useContext();
 
-  const data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+  const data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
   const progressData = [
     { percentage: "10", label: "Learned", color: "#12b764" },
@@ -46,20 +46,20 @@ const VocabularyDetails = () => {
           className="flex gap-8 w-full"
         >
           <div className="w-full flex lg:justify-start md:justify-between sm:justify-between gap-x-10">
-            {progressData.map((item, index) => (
-              <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
+            {progressData.map((item, i) => (
+              <div key={i} className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
                 <div className="w-fit flex items-center space-x-1">
-                  <div className={`h-3 w-3 rounded-[3px] bg-${item.color.replace("#", "")}`} />
+                  <div className={`h-3 w-3 rounded-[3px] bg-${item?.color?.replace("#", "")}`} />
                   <span className="truncate">
-                    {screenSize > 768 && `${item.percentage}%`} {item.label}
+                    {screenSize > 768 && `${item?.percentage}%`} {item?.label}
                   </span>
                 </div>
-                <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item.percentage}%</span>
+                <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item?.percentage}%</span>
               </div>
             ))}
           </div>
         </motion.div>
-        <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500}>
+        <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500} showThumbs={false}>
           {data.map((d, i) => (
             <VocabularyCard3 key={i} onClick={() => carouselRef.current?.moveTo(carouselRef.current?.state?.selectedItem + 1)} />
           ))}
