@@ -1,19 +1,12 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
+import { useContext } from "../context/context";
 
 const Body = ({ breadcrumb = [], children, className }) => {
   const [darkMode, setDarkMode] = React.useState(false);
   const [sidebarAction, setSidebarAction] = React.useState(false);
-  const [screenSize, setScreenSize] = React.useState(window.innerWidth);
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setScreenSize(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const { screenSize } = useContext();
 
   return (
     <div className={`flex h-screen ${darkMode && "dark"}`}>

@@ -12,6 +12,7 @@ export const defaultContextValues = {
 
 export const AppProvider = ({ children }) => {
   const [store, updateStore] = React.useState(defaultContextValues);
+  const [screenSize, setScreenSize] = React.useState(window.innerWidth);
 
   React.useEffect(() => {
     const cachedVariables = Utils.getCachedVariables();
@@ -38,10 +39,19 @@ export const AppProvider = ({ children }) => {
     console.log(store);
   }, [store]);
 
+  React.useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
         store,
+        screenSize,
         setStore,
       }}
     >
@@ -49,3 +59,5 @@ export const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
+
+export const useContext = () => React.useContext(AppContext);
