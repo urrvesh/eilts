@@ -8,15 +8,15 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
   const handleFlip = () => {
     if (!isAnimating && !isFlipped) {
       setIsFlipped(!isFlipped);
-      setIsAnimating(true);
+      setIsAnimating(!isAnimating);
     }
   };
 
   const handleRepeatFlip = (e) => {
     e.stopPropagation();
     if (!isAnimating && isFlipped) {
-      setIsFlipped(false);
-      setIsAnimating(true);
+      setIsFlipped(!isFlipped);
+      setIsAnimating(!isAnimating);
     }
   };
 
