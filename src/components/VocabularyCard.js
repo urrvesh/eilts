@@ -7,7 +7,7 @@ const VocabularyCard = ({ name, count, onClick = () => {}, key, ...rest }) => {
 
   return (
     <motion.div
-      className="p-8 rounded-xl bg-f1f6f9 w-full lg:w-[669px] md:w-full sm:w-full relative cursor-pointer"
+      className="p-4 lg:p-8 md:p-6 sm:p-6 rounded-xl bg-f1f6f9 w-full lg:w-[669px] md:w-full sm:w-full relative cursor-pointer"
       onClick={onClick}
       variants={{
         show: {
@@ -51,7 +51,7 @@ const VocabularyCard = ({ name, count, onClick = () => {}, key, ...rest }) => {
         </div>
       </div>
       <div
-        className="h-8 w-8 flex justify-center items-center absolute border rounded border-4135431a top-6 right-6 cursor-pointer"
+        className="h-8 w-8 flex justify-center items-center absolute border rounded border-4135431a top-4 lg:top-6 md:top-4 sm:top-4 right-6 lg:right-6 md:right-4 sm:right-4 cursor-pointer"
         onClick={onClick}
       >
         <img width={24} height={24} src={process.env.PUBLIC_URL + "/icons/arrow-right.svg"} alt="" />

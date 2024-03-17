@@ -30,7 +30,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
           style={{ transition: "transform 0.6s", transformStyle: "preserve-3d" }}
         >
           <div
-            className="bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-auto bg-center bg-no-repeat w-full h-[24rem] flex items-center justify-center absolute"
+            className="bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-contain bg-left bg-no-repeat w-full h-[24rem] flex items-center justify-center absolute"
             style={{ backfaceVisibility: "hidden" }}
           >
             <div className="flex items-center justify-center relative h-full w-full">
