@@ -30,21 +30,21 @@ const VocabularyCard = ({ name, count, onClick = () => {}, key, ...rest }) => {
       <div className="flex lg:justify-start md:justify-between sm:justify-between gap-4 lg:gap-8 md:gap-8 sm:gap-4 mt-4">
         <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
           <div className="w-fit flex items-center space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-12b764"/>
+            <div className="h-3 w-3 rounded-[3px] bg-12b764" />
             <span className="truncate"> {screenSize > 768 && "10%"} Learned</span>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">10%</span>
         </div>
         <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
           <div className="w-fit flex items-center space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-ffab0a"/>
+            <div className="h-3 w-3 rounded-[3px] bg-ffab0a" />
             <span className="truncate"> {screenSize > 768 && "60%"} Need to review</span>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">60%</span>
         </div>
         <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
           <div className="w-fit flex items-center space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-f04438"/>
+            <div className="h-3 w-3 rounded-[3px] bg-f04438" />
             <span className="truncate"> {screenSize > 768 && "30%"} Difficult</span>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">30%</span>

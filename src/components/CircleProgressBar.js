@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React from "react";
+import { motion, useAnimation } from "framer-motion";
 
-const CircleProgressBar = ({ progress, height, loaderName, color="#0000FF" }) => {
+const CircleProgressBar = ({ progress, height, loaderName, color = "#0000FF" }) => {
   const circleAnimation = useAnimation();
-  const strokeWidth = height / 40; // Adjust the divisor to change the thickness relative to height
+  const strokeWidth = height / 40;
 
   React.useEffect(() => {
     circleAnimation.start({
@@ -15,24 +15,24 @@ const CircleProgressBar = ({ progress, height, loaderName, color="#0000FF" }) =>
   const viewBoxSize = height / 2;
 
   return (
-    <svg
-      width={height / 2}
-      height={height / 2}
-      viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
-    >
+    <svg width={height / 2} height={height / 2} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
       <motion.path
         fill="none"
         stroke="#ccc"
         strokeWidth={strokeWidth}
         strokeLinecap="round"
-        d={`M ${viewBoxSize / 2},${viewBoxSize / 2} m -${viewBoxSize / 4},0 a ${viewBoxSize / 4},${viewBoxSize / 4} 0 1,1 ${viewBoxSize / 2},0 a ${viewBoxSize / 4},${viewBoxSize / 4} 0 1,1 -${viewBoxSize / 2},0`}
+        d={`M ${viewBoxSize / 2},${viewBoxSize / 2} m -${viewBoxSize / 4},0 a ${viewBoxSize / 4},${viewBoxSize / 4} 0 1,1 ${viewBoxSize / 2},0 a ${
+          viewBoxSize / 4
+        },${viewBoxSize / 4} 0 1,1 -${viewBoxSize / 2},0`}
       />
       <motion.path
         fill="none"
         stroke={color}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
-        d={`M ${viewBoxSize / 2},${viewBoxSize / 2} m -${viewBoxSize / 4},0 a ${viewBoxSize / 4},${viewBoxSize / 4} 0 1,1 ${viewBoxSize / 2},0 a ${viewBoxSize / 4},${viewBoxSize / 4} 0 1,1 -${viewBoxSize / 2},0`}
+        d={`M ${viewBoxSize / 2},${viewBoxSize / 2} m -${viewBoxSize / 4},0 a ${viewBoxSize / 4},${viewBoxSize / 4} 0 1,1 ${viewBoxSize / 2},0 a ${
+          viewBoxSize / 4
+        },${viewBoxSize / 4} 0 1,1 -${viewBoxSize / 2},0`}
         initial={{ pathLength: 0 }}
         animate={circleAnimation}
       />

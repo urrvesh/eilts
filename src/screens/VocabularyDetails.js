@@ -8,7 +8,6 @@ import VocabularyCard3 from "../components/VocabularyCard3";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useContext } from "../context/context";
-// import CircleProgressBar from "../components/CircleProgressBar";
 
 const VocabularyDetails = () => {
   const navigate = useNavigate();
@@ -48,34 +47,17 @@ const VocabularyDetails = () => {
         >
           <div className="w-full flex lg:justify-start md:justify-between sm:justify-between gap-x-10">
             {progressData.map((item, index) => (
-              // <div className="w-fit flex items-center font-normal text-sm text-475467 leading-5 space-x-1" key={index} >
-              //   <div
-              //     className={`h-3 w-3 rounded-[3px] bg-${item.color.replace("#","")}`}
-              //   ></div>
-              //     <span>
-              //     {item.percentage + "%"} {item.label}
-              //   </span> 
-              // </div>
               <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
-              <div className="w-fit flex items-center space-x-1">
-                <div  className={`h-3 w-3 rounded-[3px] bg-${item.color.replace("#","")}`}/>
-                <span className="truncate"> {screenSize > 768 && `${item.percentage}%`} {item.label}</span>
+                <div className="w-fit flex items-center space-x-1">
+                  <div className={`h-3 w-3 rounded-[3px] bg-${item.color.replace("#", "")}`} />
+                  <span className="truncate">
+                    {screenSize > 768 && `${item.percentage}%`} {item.label}
+                  </span>
+                </div>
+                <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item.percentage}%</span>
               </div>
-              <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item.percentage}%</span>
-            </div>
             ))}
           </div>
-          {/* <div className="flex lg:hidden md:flex sm:flex w-full justify-around">
-            {progressData.map((item, index) => (
-              <CircleProgressBar
-                key={index}
-                height={180}
-                progress={item.percentage}
-                loaderName={item.label}
-                color={item.color}
-              />
-            ))}
-          </div> */}
         </motion.div>
         <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500}>
           {data.map((d, i) => (
