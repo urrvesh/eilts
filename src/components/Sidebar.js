@@ -1,10 +1,12 @@
 import React from "react";
 import constants from "../utils/constants";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useContext } from "../context/context";
 
-const Sidebar = ({sidebarAction,screenSize, setSidebarAction=()=>{}}) => {
+const Sidebar = ({sidebarAction,setSidebarAction=()=>{}}) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { screenSize } = useContext();
 
   const sidebarData = [
     {

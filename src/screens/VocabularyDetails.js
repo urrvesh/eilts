@@ -7,13 +7,15 @@ import VocabularyCard2 from "../components/VocabularyCard2";
 import VocabularyCard3 from "../components/VocabularyCard3";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import CircleProgressBar from "../components/CircleProgressBar";
+import { useContext } from "../context/context";
+// import CircleProgressBar from "../components/CircleProgressBar";
 
 const VocabularyDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const carouselRef = React.useRef(null);
   const queryParams = new URLSearchParams(location.search);
+  const { screenSize } = useContext();
 
   const data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
@@ -44,19 +46,26 @@ const VocabularyDetails = () => {
           viewport={{ once: true, amount: 0.6 }}
           className="flex gap-8 w-full"
         >
-          <div className="flex lg:flex md:hidden sm:hidden gap-x-10">
+          <div className="w-full flex lg:justify-start md:justify-between sm:justify-between gap-x-10">
             {progressData.map((item, index) => (
-              <div className="w-fit flex items-center font-normal text-sm text-475467 leading-5 space-x-1" key={index} >
-                <div
-                  className={`h-3 w-3 rounded-[3px] bg-${item.color.replace("#","")}`}
-                ></div>
-                <span>
-                  {item.percentage + "%"} {item.label}
-                </span>
+              // <div className="w-fit flex items-center font-normal text-sm text-475467 leading-5 space-x-1" key={index} >
+              //   <div
+              //     className={`h-3 w-3 rounded-[3px] bg-${item.color.replace("#","")}`}
+              //   ></div>
+              //     <span>
+              //     {item.percentage + "%"} {item.label}
+              //   </span> 
+              // </div>
+              <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
+              <div className="w-fit flex items-center space-x-1">
+                <div  className={`h-3 w-3 rounded-[3px] bg-${item.color.replace("#","")}`}/>
+                <span className="truncate"> {screenSize > 768 && `${item.percentage}%`} {item.label}</span>
               </div>
+              <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item.percentage}%</span>
+            </div>
             ))}
           </div>
-          <div className="flex lg:hidden md:flex sm:flex w-full justify-around">
+          {/* <div className="flex lg:hidden md:flex sm:flex w-full justify-around">
             {progressData.map((item, index) => (
               <CircleProgressBar
                 key={index}
@@ -66,7 +75,7 @@ const VocabularyDetails = () => {
                 color={item.color}
               />
             ))}
-          </div>
+          </div> */}
         </motion.div>
         <Carousel ref={carouselRef} showArrows={false} showIndicators={false} showStatus={false} transitionTime={500}>
           {data.map((d, i) => (

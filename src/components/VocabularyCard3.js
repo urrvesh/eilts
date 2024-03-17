@@ -6,7 +6,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
   const [isAnimating, setIsAnimating] = React.useState(false);
 
   const handleFlip = () => {
-    if (!isAnimating && !isFlipped) {
+    if (!isAnimating) {
       setIsFlipped(!isFlipped);
       setIsAnimating(!isAnimating);
     }
@@ -17,34 +17,20 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
         <motion.div
           initial={false}
           animate={{ rotateY: isFlipped ? 180 : 360 }}
-          transition={{ duration: 0.6, animationDirection: "normal" }}
+          transition={{ duration: 0.4, animationDirection: "normal" }}
           onAnimationComplete={() => setIsAnimating(false)}
           style={{ transition: "transform 0.6s", transformStyle: "preserve-3d" }}
         >
           <div
-          className="bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-auto bg-left-top bg-no-repeat w-full h-[24rem] flex items-center justify-center absolute"
-          style={{ backfaceVisibility: "hidden" }}>
-          <div className="flex items-center justify-center">
-            <span className="text-[32px] leading-5 font-medium">Rise</span>
-          </div>
-        </div>
-        <div
-          className="w-full bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-auto bg-left-top bg-no-repeat absolute"
-          style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="h-8 w-8 flex items-center justify-center rounded border border-white absolute top-4 right-4 cursor-pointer">
-            <img className="h-5 w-5" src={process.env.PUBLIC_URL + "/icons/repeat.svg"} alt="" />
-          </div>
-          <div className="flex items-center">
-            <span className="text-[32px] leading-5 font-medium mr-[106px]">Rise</span>
-            <div className="border-l pl-5">
-              <span className="font-medium text-base leading-5">Examples:</span>
-              <ul className="font-normal text-sm leading-5 space-y-1.5 mt-3">
-                <ol>Parents should work to rise awareness.</ol>
-                <ol>The rise of social media has changes to woywe. .</ol>
-                <ol>With the ongoing effects of global warming, Coastal.</ol>
-              </ul>
+            className="bg-1f2544 rounded-xl p-10 text-white bg-vocab-card-background bg-auto bg-center bg-no-repeat w-full h-[24rem] flex items-center justify-center absolute"
+            style={{ backfaceVisibility: "hidden" }}
+          >
+            <div className="flex items-center justify-center relative h-full w-full">
+              <span className="text-[32px] leading-5 font-medium">Rise</span>
+              <span className="flex lg:hidden items-center space-x-2 w-fit font-medium absolute bottom-0">
+              <img className="h-4 w-4" src={process.env.PUBLIC_URL + "/icons/flip.svg"} alt="" />
+                <span className="whitespace-nowrap text-xs text-c5c5c5">tap to flip</span>
+              </span>
             </div>
           </div>
           <div
@@ -52,7 +38,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
             style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="h-8 w-8 flex items-center justify-center rounded border border-white absolute top-4 right-4 cursor-pointer">
+            <div className="h-8 w-8 flex items-center justify-center rounded border border-white absolute top-4 right-4 cursor-pointer" onClick={handleFlip}>
               <img className="h-5 w-5" src={process.env.PUBLIC_URL + "/icons/repeat.svg"} alt="" />
             </div>
             <div className="flex flex-col lg:flex-row md:flex-col sm:flex-col">
@@ -78,7 +64,6 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
               </button>
             </div>
           </div>
-        </div>
       </motion.div>
     </div>
   );
