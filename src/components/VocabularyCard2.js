@@ -2,8 +2,8 @@ import React from "react";
 
 const VocabularyCard2 = ({ name, data }) => {
   return (
-    <div className="p-5 bg-f5f5f5 space-y-3 rounded-xl">
-      <span className="font-medium text-base leading-5">{name}:</span>
+    <div className="p-5 bg-f5f5f5 space-y-3 rounded-xl min-w-52">
+      <span className="font-medium text-base leading-5 text-black">{name}:</span>
       <div className="space-y-2.5">
         {data?.map((item, index) => (
           <div

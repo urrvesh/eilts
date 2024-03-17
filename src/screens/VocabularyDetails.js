@@ -67,7 +67,7 @@ const VocabularyDetails = () => {
           </Carousel>
         </motion.div>
       </div>
-      <div className="min-w-[280px] lg:min-w-[340px] md:min-w-[280px] min-h-[calc(100vh-5rem)] border-l p-6 space-y-4 block lg:block md:block sm:hidden ">
+      {/* <div className="min-w-[280px] lg:min-w-[340px] md:min-w-[280px] min-h-[calc(100vh-5rem)] border-l p-6 space-y-4 block lg:block md:block sm:hidden ">
         <VocabularyCard2
           key={1}
           name="Collocation"
@@ -86,7 +86,7 @@ const VocabularyDetails = () => {
             { label: "Media & advertising", background: "bg-ffc5c5" },
           ]}
         />
-      </div>
+      </div> */}
     </Body>
   );
 };
