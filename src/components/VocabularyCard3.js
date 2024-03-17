@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import VocabularyCard2 from "./VocabularyCard2";
 
-const VocabularyCard3 = ({ onClick, ...rest }) => {
+const VocabularyCard3 = ({ onClick }) => {
   const [isFlipped, setIsFlipped] = React.useState(false);
   const [isAnimating, setIsAnimating] = React.useState(false);
 
@@ -20,6 +19,18 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
       setIsAnimating(!isAnimating);
     }
   };
+
+  const collocationData = [
+    { label: "Rise awareness", background: "bg-dbc4f0" },
+    { label: "Rise in crime", background: "bg-d4e7c5" },
+    { label: "Rise in usage", background: "bg-aee2ff" },
+  ];
+
+  const categoriesData = [
+    { label: "Family & children", background: "bg-f4c7ab" },
+    { label: "Government & society", background: "bg-c6dcce" },
+    { label: "Media & advertising", background: "bg-ffc5c5" },
+  ];
 
   return (
     <motion.div
@@ -47,7 +58,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
           >
             <div className="flex items-center justify-center relative h-full w-full">
               <span className="text-[32px] leading-5 font-medium">Rise</span>
-              <span className="flex items-center space-x-2 w-fit font-medium absolute bottom-0">
+              <span className="flex items-center space-x-2 w-fit font-medium absolute -bottom-4">
                 <img className="h-4 w-4" src={process.env.PUBLIC_URL + "/icons/flip.svg"} alt="flip" />
                 <span className="whitespace-nowrap text-xs text-c5c5c5">Tap to flip</span>
               </span>
@@ -64,33 +75,52 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
               <img className="h-5 w-5" src={process.env.PUBLIC_URL + "/icons/repeat.svg"} alt="" />
             </div>
             <div className="flex flex-col lg:flex-row md:flex-col sm:flex-col">
-              <span className="text-[32px] leading-5 font-medium mr-[106px] flex items-center justify-center lg:justify-center md:justify-start sm:justify-start">
+              <div className="flex flex-col items-start justify-center max-w-52 border-r lg:border-r md:border-0 sm:border-0">
+              <div className="text-[32px] leading-5 font-medium mr-[106px] flex items-center justify-center lg:justify-center md:justify-start sm:justify-start">
                 Rise
-              </span>
-              <div className="flex flex-row lg:flex-row md:flex-row sm:flex-col border-l lg:border-l md:border-0 sm:border-0 pl-5 lg:pl-5 md:pl-0 sm:pl-0 text-left mt-5 lg:mt-0 md:mt-5 sm:mt-5 space-x-4 lg:space-x-4 md:space-x-4 sm:space-x-0 space-y-4 lg:space-y-0 md:space-y-0 sm:space-y-4">
-                <VocabularyCard2
-                  key={1}
-                  name="Collocation"
-                  data={[
-                    { label: "Rise awareness", background: "bg-dbc4f0" },
-                    { label: "Rise in crime", background: "bg-d4e7c5" },
-                    { label: "Rise in usage", background: "bg-aee2ff" },
-                  ]}
-                />
-                <VocabularyCard2
-                  key={2}
-                  name="Categories"
-                  data={[
-                    { label: "Family & children", background: "bg-f4c7ab" },
-                    { label: "Government & society", background: "bg-c6dcce" },
-                    { label: "Media & advertising", background: "bg-ffc5c5" },
-                  ]}
-                />
               </div>
-            </div>
-            <div className="flex flex-col w-full mt-8 lg:mt-8 md:mt-6 sm:mt-6 items-start">
-              <span className="font-medium text-base leading-5">Synonym:</span>
-              <div className="text-start mt-3 text-sm">adjust, adapt, become accustomed, get used</div>
+              <div className="flex flex-col w-full mt-8 lg:mt-8 md:mt-6 sm:mt-6 items-start">
+                  <span className="font-medium text-base leading-5">
+                    Synonym:
+                  </span>
+                  <div className="text-start mt-3 text-sm">
+                    adjust, adapt, become accustomed, get used
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-row lg:flex-row md:flex-row sm:flex-col border-l lg:border-l md:border-0 sm:border-0 pl-5 lg:pl-5 md:pl-0 sm:pl-0 text-left mt-5 lg:mt-0 md:mt-5 sm:mt-5 space-x-4 lg:space-x-4 md:space-x-4 sm:space-x-0 space-y-4 lg:space-y-0 md:space-y-0 sm:space-y-4">
+              <div className="p-5 space-y-3 min-w-52 border rounded-lg border-646a8b">
+                  <span className="font-medium text-base leading-5">
+                    Collocation:
+                  </span>
+                  <div className="space-y-2.5">
+                    {collocationData?.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`h-8 w-fit flex items-center justify-center px-3 text-sm font-normal leading-5 rounded truncate ${item?.background}`}
+                      >
+                        {item?.label}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                  <div className="p-5 space-y-3 min-w-52 rounded-lg border border-646a8b">
+                    <span className="font-medium text-base leading-5">
+                      Categories:
+                    </span>
+                    <div className="space-y-2.5">
+                      {categoriesData?.map((item, index) => (
+                        <div
+                          key={index}
+                          className={`h-8 w-fit flex items-center justify-center px-3 text-sm font-normal leading-5 rounded truncate ${item?.background}`}
+                        >
+                          {item?.label}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+              </div>
             </div>
             <div className="flex flex-col w-full mt-8 lg:mt-8 md:mt-6 sm:mt-6 items-start">
               <span className="font-medium text-base leading-5">Examples:</span>
