@@ -23,7 +23,7 @@ const VocabularyCard3 = ({ onClick, ...rest }) => {
 
   return (
     <div className="w-full flex justify-center">
-    <div onClick={handleFlip} style={{ perspective: 5000 }} className="relative mt-5 h-[28rem] lg:h-[38rem] md:h-[38rem] sm:h-[56rem] min-w-11/12 lg:min-w-11/12 md:min-w-[98%] sm:min-w-[98%]" {...rest}>
+    <div onClick={handleFlip} style={{ perspective: 5000 }} className="relative mt-5 h-[28rem] lg:h-[38rem] md:h-[38rem] sm:h-[56rem] min-w-10/12 lg:min-w-10/12 md:min-w-[98%] sm:min-w-[98%]" {...rest}>
       <motion.div
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 360 }}
