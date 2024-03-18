@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -11,6 +12,7 @@ const VocabularyDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const carouselRef = React.useRef(null);
+  const queryParams = new URLSearchParams(location.search);
   const { store, setStore } = useContext();
 
   const data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
@@ -22,11 +24,11 @@ const VocabularyDetails = () => {
   ];
 
   React.useEffect(() => {
-    setStore({ breadcrumb: [{ label: "Vocabulary", onClick: () => navigate(constants.route.vocabulary) }, { label: new URLSearchParams(location.search)?.get("name") }] });
+    setStore({ breadcrumb: [{ label: "Vocabulary", onClick: () => navigate(constants.route.vocabulary) }, { label: queryParams?.get("name") }] });
     return () => {
       setStore({ breadcrumb: [] });
     };
-  }, [location.search, navigate, setStore]);
+  }, []);
 
   return (
     <React.Fragment>
