@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -28,7 +27,7 @@ const VocabularyDetails = () => {
     return () => {
       setStore({ breadcrumb: [] });
     };
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <React.Fragment>
