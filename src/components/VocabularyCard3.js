@@ -48,13 +48,13 @@ const VocabularyCard3 = ({ onClick }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.8 }}
       className="w-full flex justify-center"
     >
       <div
         onClick={handleFlip}
         style={{ perspective: 5000 }}
-        className={`mt-5 ${flippingClasses} min-w-10/12 lg:min-w-10/12 md:min-w-[98%] sm:min-w-[98%]`}
+        className={`mt-5 ${flippingClasses} min-w-10/12 lg:min-w-10/12 md:min-w-[80%] sm:min-w-[80%]`}
       >
         <motion.div
           initial={false}
