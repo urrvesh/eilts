@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 const VocabularyCard3 = ({ onClick }) => {
   const [isFlipped, setIsFlipped] = React.useState(false);
   const [isAnimating, setIsAnimating] = React.useState(false);
+  const [flippingClasses, setFlippingClasses] = React.useState("");
 
   const handleFlip = () => {
     if (!isAnimating && !isFlipped) {
@@ -32,6 +33,16 @@ const VocabularyCard3 = ({ onClick }) => {
     { label: "Media & advertising", background: "bg-ffc5c5" },
   ];
 
+  useEffect(() => {
+    if (isFlipped) {
+      setFlippingClasses("h-[38rem] lg:h-[38rem] md:h-[44rem] sm:h-[60rem]");
+    } else {
+      setTimeout(() => {
+        setFlippingClasses("h-[26rem]");
+      }, 200);
+    }
+  }, [isFlipped]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -43,7 +54,7 @@ const VocabularyCard3 = ({ onClick }) => {
       <div
         onClick={handleFlip}
         style={{ perspective: 5000 }}
-        className="relative mt-5 h-[43rem] lg:h-[43rem] md:h-[42rem] sm:h-[59rem] min-w-10/12 lg:min-w-10/12 md:min-w-[98%] sm:min-w-[98%]"
+        className={`mt-5 ${flippingClasses} min-w-10/12 lg:min-w-10/12 md:min-w-[98%] sm:min-w-[98%]`}
       >
         <motion.div
           initial={false}

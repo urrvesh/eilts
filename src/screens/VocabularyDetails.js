@@ -27,7 +27,7 @@ const VocabularyDetails = () => {
     return () => {
       setStore({ breadcrumb: [] });
     };
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <React.Fragment>
