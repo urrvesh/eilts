@@ -1,17 +1,18 @@
 import React from "react";
+import { onAuthStateChanged } from "firebase/auth";
 
 import Utils from "../utils/utils";
+import { getFirebaseAuth } from "../firebase";
 
 export const AppContext = React.createContext();
 
 export const defaultContextValues = {
-  isAuthenticated: false,
   isLoading: false,
   darkMode: false,
   sidebarAction: false,
-  userdata: {},
   screenSize: window.innerWidth,
   breadcrumb: [],
+  userdata: null,
 };
 
 export const AppProvider = ({ children }) => {
@@ -22,6 +23,8 @@ export const AppProvider = ({ children }) => {
     for (const key of Object.keys(cachedVariables)) {
       setStore({ [key]: cachedVariables[key] });
     }
+
+    onAuthStateChanged(getFirebaseAuth, (userdata) => setStore({ userdata }));
   }, []);
 
   const setStore = (data = {}, cache = false) => {
@@ -46,6 +49,14 @@ export const AppProvider = ({ children }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const logout = async () => {
+    try {
+      await getFirebaseAuth.signOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   React.useEffect(() => {
     console.log(store);
   }, [store]);
@@ -55,6 +66,7 @@ export const AppProvider = ({ children }) => {
       value={{
         store,
         setStore,
+        logout,
       }}
     >
       {children}

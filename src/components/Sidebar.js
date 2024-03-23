@@ -3,7 +3,7 @@ import constants from "../utils/constants";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "../context/context";
 
-const Sidebar = () => {
+const Sidebar = ({ isAuthenticated = false }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { store, setStore } = useContext();
@@ -47,7 +47,7 @@ const Sidebar = () => {
     },
   ];
 
-  if (!store.sidebarAction && store.screenSize <= 768) {
+  if (!isAuthenticated || (!store.sidebarAction && store.screenSize <= 768)) {
     return null;
   }
 

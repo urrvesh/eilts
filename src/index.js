@@ -4,8 +4,11 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import App from "./routes/app";
 import { AppProvider } from "./context/context";
+import { getFirebaseAuth } from "./firebase";
 
 import "./index.css";
+
+getFirebaseAuth.useDeviceLanguage();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

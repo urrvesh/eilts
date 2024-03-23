@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import constants from "../utils/constants";
-import Utils from "../utils/utils";
 import Loader from "../components/Loader";
 import { useContext } from "../context/context";
 import Sidebar from "../components/Sidebar";
@@ -19,26 +18,26 @@ const Reading = React.lazy(() => import("../screens/Reading"));
 const Help = React.lazy(() => import("../screens/Help"));
 const Setting = React.lazy(() => import("../screens/Setting"));
 
-const AuthRoute = ({ children, isProtected }) => {
-  const isAuthenticated = Utils.getCachedVariables("isAuthenticated");
-  if (isProtected && !isAuthenticated) {
-    return <Navigate replace to={constants.route.login} />;
-  } else if (!isProtected && isAuthenticated) {
-    return <Navigate replace to={constants.route.root} />;
-  } else {
-    return <React.Suspense fallback={<Loader />}>{children}</React.Suspense>;
-  }
-};
-
 const App = () => {
   const { store } = useContext();
+  const isAuthenticated = !!store?.userdata;
+
+  const AuthRoute = ({ children, isProtected }) => {
+    if (isProtected && !isAuthenticated) {
+      return <Navigate replace to={constants.route.login} />;
+    } else if (!isProtected && isAuthenticated) {
+      return <Navigate replace to={constants.route.root} />;
+    } else {
+      return <React.Suspense fallback={<Loader />}>{children}</React.Suspense>;
+    }
+  };
 
   return (
     <BrowserRouter>
       <div className={`flex h-screen ${store.darkMode && "dark"}`}>
-        <Sidebar />
+        <Sidebar isAuthenticated={isAuthenticated} />
         <div className="w-full dark:bg-black">
-          <Header />
+          <Header isAuthenticated={isAuthenticated} />
           <div className={"max-h-[calc(100vh-5rem)] p-4 lg:p-8 md:p-6 sm:p-4 overflow-x-hidden overflow-y-auto"}>
             <Routes>
               <Route path={constants.route.root} element={<Navigate to={constants.route.home} />} />

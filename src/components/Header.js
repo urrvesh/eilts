@@ -3,8 +3,12 @@ import Avatar from "./Avatar";
 import Breadcrumb from "./Breadcrumb";
 import { useContext } from "../context/context";
 
-const Header = () => {
+const Header = ({ isAuthenticated = false }) => {
   const { store, setStore } = useContext();
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className="flex items-center justify-between h-20 w-full border-b px-6 lg:px-8 md:px-6 sm:px-4">
