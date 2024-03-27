@@ -1,9 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useContext } from "../context/context";
 
 const VocabularyCard = ({ name, count, onClick = () => {}, ...rest }) => {
-  const { store } = useContext();
 
   return (
     <motion.div
@@ -31,21 +29,21 @@ const VocabularyCard = ({ name, count, onClick = () => {}, ...rest }) => {
         <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
           <div className="w-fit flex items-center space-x-1">
             <div className="h-3 w-3 rounded-[3px] bg-12b764" />
-            <span className="truncate"> {store.screenSize > 768 && "10%"} Learned</span>
+            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">10%</p> <p>Learned</p></div>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">10%</span>
         </div>
         <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
           <div className="w-fit flex items-center space-x-1">
             <div className="h-3 w-3 rounded-[3px] bg-ffab0a" />
-            <span className="truncate"> {store.screenSize > 768 && "60%"} Need to review</span>
+            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">60%</p> <p>Need to review</p></div>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">60%</span>
         </div>
         <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
           <div className="w-fit flex items-center space-x-1">
             <div className="h-3 w-3 rounded-[3px] bg-f04438" />
-            <span className="truncate"> {store.screenSize > 768 && "30%"} Difficult</span>
+            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">30%</p> <p>Difficult</p></div>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">30%</span>
         </div>

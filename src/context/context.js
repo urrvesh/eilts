@@ -10,7 +10,6 @@ export const defaultContextValues = {
   isLoading: false,
   darkMode: false,
   sidebarAction: false,
-  screenSize: window.innerWidth,
   breadcrumb: [],
   userdata: null,
 };
@@ -40,14 +39,6 @@ export const AppProvider = ({ children }) => {
       }
     }
   };
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setStore({ screenSize: window.innerWidth });
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const logout = async () => {
     try {
