@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 import constants from "../utils/constants";
 import Loader from "../components/Loader";
@@ -18,23 +18,29 @@ const Reading = React.lazy(() => import("../screens/Reading"));
 const Help = React.lazy(() => import("../screens/Help"));
 const Setting = React.lazy(() => import("../screens/Setting"));
 
+const AuthRoute = ({ isProtected = true, children }) => {
+  const navigate = useNavigate();
+  const { store } = useContext();
+  const isAuthenticated = !!store?.userdata;
+
+  React.useEffect(() => {
+    if (isProtected && !isAuthenticated) {
+      navigate(constants.route.login);
+    } else if (!isProtected && isAuthenticated) {
+      navigate(constants.route.root);
+    }
+  }, [isProtected, isAuthenticated, navigate]);
+
+  return <React.Suspense fallback={<Loader />}>{children}</React.Suspense>;
+};
+
 const App = () => {
   const { store } = useContext();
   const isAuthenticated = !!store?.userdata;
 
-  const AuthRoute = ({ children, isProtected }) => {
-    if (isProtected && !isAuthenticated) {
-      return <Navigate replace to={constants.route.login} />;
-    } else if (!isProtected && isAuthenticated) {
-      return <Navigate replace to={constants.route.root} />;
-    } else {
-      return <React.Suspense fallback={<Loader />}>{children}</React.Suspense>;
-    }
-  };
-
   return (
     <BrowserRouter>
-      <div className={`flex h-screen ${store.darkMode && "dark"}`}>
+      <div className={`flex h-screen ${store?.darkMode && "dark"}`}>
         <Sidebar isAuthenticated={isAuthenticated} />
         <div className="w-full dark:bg-black">
           <Header isAuthenticated={isAuthenticated} />
@@ -42,15 +48,15 @@ const App = () => {
             <Routes>
               <Route path={constants.route.root} element={<Navigate to={constants.route.home} />} />
               <Route path={constants.route.login} element={<AuthRoute isProtected={false} children={<Login />} />} />
-              <Route path={constants.route.home} element={<AuthRoute isProtected={true} children={<Home />} />} />
-              <Route path={constants.route.vocabulary} element={<AuthRoute isProtected={true} children={<Vocabulary />} />} />
-              <Route path={constants.route.vocabulary + "/:id"} element={<AuthRoute isProtected={true} children={<VocabularyDetails />} />} />
-              <Route path={constants.route.collocation} element={<AuthRoute isProtected={true} children={<Collocation />} />} />
-              <Route path={constants.route.grammar} element={<AuthRoute isProtected={true} children={<Grammar />} />} />
-              <Route path={constants.route.writing} element={<AuthRoute isProtected={true} children={<Writing />} />} />
-              <Route path={constants.route.reading} element={<AuthRoute isProtected={true} children={<Reading />} />} />
-              <Route path={constants.route.help} element={<AuthRoute isProtected={true} children={<Help />} />} />
-              <Route path={constants.route.setting} element={<AuthRoute isProtected={true} children={<Setting />} />} />
+              <Route path={constants.route.home} element={<AuthRoute children={<Home />} />} />
+              <Route path={constants.route.vocabulary} element={<AuthRoute children={<Vocabulary />} />} />
+              <Route path={constants.route.vocabulary + "/:id"} element={<AuthRoute children={<VocabularyDetails />} />} />
+              <Route path={constants.route.collocation} element={<AuthRoute children={<Collocation />} />} />
+              <Route path={constants.route.grammar} element={<AuthRoute children={<Grammar />} />} />
+              <Route path={constants.route.writing} element={<AuthRoute children={<Writing />} />} />
+              <Route path={constants.route.reading} element={<AuthRoute children={<Reading />} />} />
+              <Route path={constants.route.help} element={<AuthRoute children={<Help />} />} />
+              <Route path={constants.route.setting} element={<AuthRoute children={<Setting />} />} />
             </Routes>
           </div>
         </div>
