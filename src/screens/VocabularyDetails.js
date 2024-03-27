@@ -22,12 +22,10 @@ const VocabularyDetails = () => {
     { percentage: "30", label: "Difficult", color: "#f04438" },
   ];
 
-  React.useEffect(() => {
-    setStore({ breadcrumb: [{ label: "Vocabulary", onClick: () => navigate(constants.route.vocabulary) }, { label: queryParams?.get("name") }] });
-    return () => {
-      setStore({ breadcrumb: [] });
-    };
-  }, []); // eslint-disable-line
+  // React.useEffect(() => {
+  //   setStore({ breadcrumb: [{ label: "Vocabulary", onClick: () => navigate(constants.route.vocabulary) }, { label: queryParams?.get("name") }] });
+  //   return () => setStore({ breadcrumb: [] });
+  // }, []); // eslint-disable-line
 
   return (
     <React.Fragment>

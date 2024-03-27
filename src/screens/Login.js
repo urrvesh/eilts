@@ -8,13 +8,7 @@ const Login = () => {
   const [verificationCode, setVerificationCode] = React.useState("");
 
   React.useEffect(() => {
-    window.recaptchaVerifier = new RecaptchaVerifier(getFirebaseAuth, "sign-in-button", {
-      size: "invisible",
-      callback: (response) => {
-        console.log(response);
-        onSignInSubmit();
-      },
-    });
+    window.recaptchaVerifier = new RecaptchaVerifier(getFirebaseAuth, "sign-in-button", { size: "invisible" });
   }, []); // eslint-disable-line
 
   const onSignInSubmit = async () => {

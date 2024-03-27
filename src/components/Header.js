@@ -15,10 +15,10 @@ const Header = ({ isAuthenticated = false }) => {
       <div className="block lg:hidden md:block sm:block">
         <img width={20} height={20} src={process.env.PUBLIC_URL + "/icons/menu.svg"} alt="" onClick={() => setStore({ sidebarAction: true })} />
       </div>
-      {store.breadcrumb?.length <= 0 ? (
+      {store?.breadcrumb?.length <= 0 ? (
         <div className="font-normal text-base leading-6 hidden lg:block md:hidden sm:hidden ">Welcome back, Punit! 👋</div>
       ) : (
-        <Breadcrumb data={store.breadcrumb} />
+        <Breadcrumb data={store?.breadcrumb} />
       )}
       {/* <button onClick={() => setStore({ darkMode: !store.darkMode })}>Dark</button> */}
       <div className="flex items-center">
