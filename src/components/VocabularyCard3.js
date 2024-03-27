@@ -54,7 +54,7 @@ const VocabularyCard3 = ({ onClick }) => {
       <div
         onClick={handleFlip}
         style={{ perspective: 5000 }}
-        className={`mt-5 ${flippingClasses} min-w-10/12 lg:min-w-10/12 md:min-w-[80%] sm:min-w-[80%]`}
+        className={`mt-5 ${flippingClasses} min-w-10/12 lg:min-w-10/12 md:min-w-[92%] sm:min-w-[98%] overflow-hidden`}
       >
         <motion.div
           initial={false}
