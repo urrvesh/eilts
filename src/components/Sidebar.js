@@ -48,7 +48,7 @@ const Sidebar = ({ isAuthenticated = false }) => {
   ];
 
   return (
-    <div className={`w-full lg:w-fit md:w-full sm:w-full h-full bg-black bg-opacity-25 backdrop-blur-sm absolute lg:relative md:absolute sm:absolute z-[99] lg:z-0 sm:z-[99] md:z-[99] hidden lg:block md:${!isAuthenticated || !store.sidebarAction ? "hidden" : "block"} sm:${!isAuthenticated || !store.sidebarAction ? "hidden" : "block"}`}>
+    <div className={`w-full lg:w-fit md:w-full sm:w-full h-full bg-black bg-opacity-25 backdrop-blur-sm absolute lg:relative md:absolute sm:absolute z-[99] lg:z-0 sm:z-[99] md:z-[99] hidden lg:${!isAuthenticated ? "hidden" : "block"} md:${!isAuthenticated || !store.sidebarAction ? "hidden" : "block"} sm:${!isAuthenticated || !store.sidebarAction ? "hidden" : "block"}`}>
       <div className="w-full absolute top-0 left-0 h-full" role="presentation" onClick={() => setStore({ sidebarAction: false })} />
       <div className="flex flex-col w-[312px] min-w-[312px] h-full bg-sidebarColor justify-between relative z-999">
         <div className="">

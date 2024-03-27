@@ -5,7 +5,7 @@ const VocabularyCard = ({ name, count, onClick = () => {}, ...rest }) => {
 
   return (
     <motion.div
-      className="p-4 lg:p-8 md:p-6 sm:p-6 rounded-xl bg-f1f6f9 w-full lg:w-[669px] md:w-full sm:w-full relative cursor-pointer"
+      className="p-4 lg:p-8 md:p-6 sm:p-6 rounded-xl bg-f1f6f9 w-full lg:w-[669px] md:w-full sm:w-full relative cursor-pointer overflow-hidden"
       onClick={onClick}
       variants={{
         show: {
@@ -26,24 +26,24 @@ const VocabularyCard = ({ name, count, onClick = () => {}, ...rest }) => {
         <span className="font-medium text-sm leading-5 text-475467">({count})</span>
       </div>
       <div className="flex lg:justify-start md:justify-between sm:justify-between gap-4 lg:gap-8 md:gap-8 sm:gap-4 mt-4">
-        <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
-          <div className="w-fit flex items-center space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-12b764" />
-            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">10%</p> <p>Learned</p></div>
+        <div className="w-1/3 lg:w-fit md:w-1/3 sm:w-1/3 flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
+          <div className="w-full flex items-center justify-center space-x-1 truncate">
+            <div className="h-3 min-w-3 rounded-[3px] bg-12b764" />
+            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">10%</p> <p className="truncate">Learned</p></div>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">10%</span>
         </div>
-        <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
-          <div className="w-fit flex items-center space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-ffab0a" />
-            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">60%</p> <p>Need to review</p></div>
+        <div className="w-1/3 lg:w-fit md:w-1/3 sm:w-1/3 flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
+          <div className="w-full flex items-center justify-center space-x-1 truncate">
+            <div className="h-3 min-w-3 rounded-[3px] bg-ffab0a" />
+            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">60%</p> <p className="truncate">Need to review</p></div>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">60%</span>
         </div>
-        <div className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
-          <div className="w-fit flex items-center space-x-1">
-            <div className="h-3 w-3 rounded-[3px] bg-f04438" />
-            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">30%</p> <p>Difficult</p></div>
+        <div className="w-1/3 lg:w-fit md:w-1/3 sm:w-1/3 flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
+          <div className="w-full flex items-center justify-center space-x-1 truncate">
+            <div className="h-3 min-w-3 rounded-[3px] bg-f04438" />
+            <div className="flex space-x-1 truncate"> <p className="hidden lg:block md:hidden sm:hidden">30%</p> <p className="truncate">Difficult</p></div>
           </div>
           <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">30%</span>
         </div>
