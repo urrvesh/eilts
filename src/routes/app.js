@@ -60,6 +60,7 @@ const App = () => {
             </Routes>
           </div>
         </div>
+        {store?.isLoading ? <Loader /> : null}
       </div>
     </BrowserRouter>
   );
