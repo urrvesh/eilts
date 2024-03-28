@@ -50,7 +50,8 @@ const VocabularyDetails = () => {
               <div className="w-fit flex items-center space-x-1">
                 <div className={`h-3 w-3 rounded-[3px] bg-${item?.color?.replace("#", "")}`} />
                 <span className="flex space-x-1 truncate">
-                  <p className="hidden lg:block md:hidden sm:hidden">{item?.percentage}%</p><p>{item?.label}</p>
+                  <p className="hidden lg:block md:hidden sm:hidden">{item?.percentage}%</p>
+                  <p>{item?.label}</p>
                 </span>
               </div>
               <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item?.percentage}%</span>
