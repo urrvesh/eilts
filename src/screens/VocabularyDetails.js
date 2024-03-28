@@ -12,7 +12,7 @@ const VocabularyDetails = () => {
   const location = useLocation();
   const carouselRef = React.useRef(null);
   const queryParams = new URLSearchParams(location.search);
-  const { store, setStore } = useContext();
+  const { setStore } = useContext();
 
   const data = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
@@ -44,13 +44,14 @@ const VocabularyDetails = () => {
         viewport={{ once: true, amount: 0.6 }}
         className="flex gap-8 w-full"
       >
-        <div className="w-full flex lg:justify-start md:justify-between sm:justify-between gap-x-10">
+        <div className="w-full flex lg:justify-start md:justify-between sm:justify-between gap-x-10 lg:gap-x-10 md:gap-x-10 sm:gap-x-4">
           {progressData.map((item, i) => (
             <div key={i} className="w-fit flex flex-col items-center justify-center font-normal text-sm text-475467 leading-5">
               <div className="w-fit flex items-center space-x-1">
                 <div className={`h-3 w-3 rounded-[3px] bg-${item?.color?.replace("#", "")}`} />
-                <span className="truncate">
-                  {store.screenSize > 768 && `${item?.percentage}%`} {item?.label}
+                <span className="flex space-x-1 truncate">
+                  <p className="hidden lg:block md:hidden sm:hidden">{item?.percentage}%</p>
+                  <p>{item?.label}</p>
                 </span>
               </div>
               <span className="flex lg:hidden md:flex sm:flex truncate text-black font-medium">{item?.percentage}%</span>

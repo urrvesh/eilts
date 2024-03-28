@@ -12,7 +12,7 @@ const Header = ({ isAuthenticated = false }) => {
 
   return (
     <div className="flex items-center justify-between h-20 w-full border-b px-6 lg:px-8 md:px-6 sm:px-4">
-      <div className="block lg:hidden md:block sm:block">
+      <div className="block lg:hidden md:block sm:block cursor-pointer">
         <img width={20} height={20} src={process.env.PUBLIC_URL + "/icons/menu.svg"} alt="" onClick={() => setStore({ sidebarAction: true })} />
       </div>
       {store?.breadcrumb?.length <= 0 ? (
