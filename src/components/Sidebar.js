@@ -52,7 +52,7 @@ const Sidebar = ({ isAuthenticated = false }) => {
 
   return (
     <div
-      className={`w-full lg:w-fit md:w-full sm:w-full h-full bg-black bg-opacity-25 backdrop-blur-sm absolute lg:relative md:absolute sm:absolute z-[99] lg:z-0 sm:z-[99] md:z-[99] hidden md:${
+      className={`w-full lg:w-fit md:w-full sm:w-full h-full bg-black bg-opacity-25 backdrop-blur-sm absolute lg:relative md:absolute sm:absolute z-[99] lg:z-0 sm:z-[99] md:z-[99] hidden lg:block md:${
         !store.sidebarAction ? "hidden" : "block"
       } sm:${!store.sidebarAction ? "hidden" : "block"}`}
     >
